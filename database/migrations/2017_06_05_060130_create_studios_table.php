@@ -13,7 +13,13 @@ class CreateStudiosTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('studios', function (Blueprint $table) {
+            $table->increments('id_studio');
+            $table->integer('id_bioskop')
+            $table->string('jenis');
+            $table->integer('jumlah_kursi');
+            $table->integer('statwus');
+        });
     }
 
     /**
@@ -23,6 +29,6 @@ class CreateStudiosTable extends Migration
      */
     public function down()
     {
-        //
+            Schema::dropIfExists('studios');
     }
 }

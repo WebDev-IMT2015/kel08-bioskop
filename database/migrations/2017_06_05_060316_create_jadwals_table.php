@@ -16,8 +16,8 @@ class CreateJadwalsTable extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->integer('id_studio');
             $table->integer('id_film');
-            $table->string('nama');
-            $table->string('lokasi');
+            $table->date('tgl_tayang');
+            $table->date('tgl_berhenti');
         });
     }
 

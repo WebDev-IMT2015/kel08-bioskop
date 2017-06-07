@@ -13,7 +13,12 @@ class CreateBioskopsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('bioskops', function (Blueprint $table) {
+            $table->increments('id_bioskop');
+            $table->string('nama');
+            $table->string('lokasi');
+            $table->integer('status');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateBioskopsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('bioskops');
     }
 }

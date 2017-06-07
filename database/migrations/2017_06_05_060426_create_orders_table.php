@@ -13,7 +13,11 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        //
+       Schema::create('orders', function (Blueprint $table) {
+            $table->integer('id_jtf');
+            $table->integer('jumlah_tiket');
+            $table->date('tlg_pesan');
+        });
     }
 
     /**
@@ -23,6 +27,5 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        //
-    }
+        Schema::dropIfExists('orders');    }
 }
