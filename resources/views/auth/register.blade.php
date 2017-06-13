@@ -1,4 +1,4 @@
-@extends('layouts.app')
+    @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -49,6 +49,15 @@
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? 'has-error' : '' }}">
+                            <label class="col-md-4 control-label">Type</label>
+
+                            <div class="col-md-6">
+                                <input id="admin" type="radio" name="type" value="admin"> <label for="admin"> Admin</label><br>
+                                <input id="cs" type="radio" name="type" value="customerservice" checked><label for="cs"> Customer Service</label><br>
                             </div>
                         </div>
 
