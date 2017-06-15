@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('kursibioskop', function (){
+	return view('kursiBioskop');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

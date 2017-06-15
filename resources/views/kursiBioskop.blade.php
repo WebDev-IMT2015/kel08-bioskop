@@ -83,7 +83,7 @@
 
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
-        <table>
+        <table id="tabelKursi" onclick="javascript::ordt(event)" border="1">
         <tr>
             <th colspan="10"><p align="center">Layar</p></th>
           </tr>
@@ -101,85 +101,85 @@
           </tr>
           <tr>
             <th>A</th>
-            <td id="myBtn"> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td id="myBtnA1"> </td>
+            <td id="myBtnA2"> </td>
+            <td id="myBtnA3"> </td>
+            <td id="myBtnA4"> </td>
+            <td id="myBtnA5"> </td>
+            <td id="myBtnA6"> </td>
+            <td id="myBtnA7"> </td>
+            <td id="myBtnA8"> </td>
+            <td id="myBtnA9"> </td>
           </tr>
           <tr>
             <th>B</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td id="myBtnB1"> </td>
+            <td id="myBtnB2"> </td>
+            <td id="myBtnB3"> </td>
+            <td id="myBtnB4"> </td>
+            <td id="myBtnB5"> </td>
+            <td id="myBtnB6"> </td>
+            <td id="myBtnB7"> </td>
+            <td id="myBtnB8"> </td>
+            <td id="myBtnB9"> </td>
           </tr>
           <tr>
             <th>C</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td id="myBtnC1"> </td>
+            <td id="myBtnC2"> </td>
+            <td id="myBtnC3"> </td>
+            <td id="myBtnC4"> </td>
+            <td id="myBtnC5"> </td>
+            <td id="myBtnC6"> </td>
+            <td id="myBtnC7"> </td>
+            <td id="myBtnC8"> </td>
+            <td id="myBtnC9"> </td>
           </tr>
           <tr>
             <th>D</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <th> </th>
-            <th> </th>
+            <td id="myBtnD1"> </td>
+            <td id="myBtnD2"> </td>
+            <td id="myBtnD3"> </td>
+            <td id="myBtnD4"> </td>
+            <td id="myBtnD5"> </td>
+            <td id="myBtnD6"> </td>
+            <td id="myBtnD7"> </td>
+            <th></th>
+            <th></th>
           </tr>
           <tr>
             <th>E</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <th> </th>
-            <th> </th>
+            <td id="myBtnE1"> </td>
+            <td id="myBtnE2"> </td>
+            <td id="myBtnE3"> </td>
+            <td id="myBtnE4"> </td>
+            <td id="myBtnE5"> </td>
+            <td id="myBtnE6"> </td>
+            <td id="myBtnE7"> </td>
+            <th></th>
+            <th></th>
           </tr>
           <tr>
             <th>F</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td id="myBtnF1"> </td>
+            <td id="myBtnF2"> </td>
+            <td id="myBtnF3"> </td>
+            <td id="myBtnF4"> </td>
+            <td id="myBtnF5"> </td>
+            <td id="myBtnF6"> </td>
+            <td id="myBtnF7"> </td>
             <th> </th>
             <th> </th>
           </tr>
           <tr>
             <th>G</th>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
-            <td> </td>
+            <td id="myBtnG1"> </td>
+            <td id="myBtnG2"> </td>
+            <td id="myBtnG3"> </td>
+            <td id="myBtnG4"> </td>
+            <td id="myBtnG5"> </td>
+            <td id="myBtnG6"> </td>
+            <td id="myBtnG7"> </td>
             <th> </th>
             <th> </th>
           </tr>
@@ -198,31 +198,37 @@
 </div>
 
 <script>
+
+function ordt(e){ 
+    alert(e.target.id); //current cell
+    //alert(e.target.parentNode.innerText); //Current row.
+}​
+
 // Get the modal
-var modal = document.getElementById('myModal');
+// var modal = document.getElementById('myModal');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+// // Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+// // Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+// // When the user clicks the button, open the modal 
+// btn.onclick = function() {
+//     modal.style.display = "block";
+// }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
+// // When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//     modal.style.display = "none";
+// }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
 </script>
   </body>
 </html>
