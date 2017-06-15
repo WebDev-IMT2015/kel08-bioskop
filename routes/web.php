@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/addfilm', function(){
+	return view('addfilm');
+});
+
+Route::POST('addfilm', 'FilmController@insertFilm');
+
 Route::get('kursibioskop', function (){
 	return view('kursiBioskop');
 });
