@@ -20,6 +20,7 @@ class CreateJamTayangFilmsTable extends Migration
             $table->integer('harga');
             $table->string('jam');
             $table->date('tgl_tayang');
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateFilmsTable extends Migration
             $table->string('judul');
             $table->integer('durasi');
             $table->string('rate_umur');
+            $table->timestamps();
         });
     }
 

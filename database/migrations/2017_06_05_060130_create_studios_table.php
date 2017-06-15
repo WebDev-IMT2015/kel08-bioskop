@@ -18,7 +18,8 @@ class CreateStudiosTable extends Migration
             $table->integer('id_bioskop');
             $table->string('jenis');
             $table->integer('jumlah_kursi');
-            $table->integer('statwus');
+            $table->integer('status');
+            $table->timestamps();
         });
     }
 

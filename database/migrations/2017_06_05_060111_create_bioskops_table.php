@@ -18,6 +18,7 @@ class CreateBioskopsTable extends Migration
             $table->string('nama');
             $table->string('lokasi');
             $table->integer('status');
+            $table->timestamps();
         });
     }
 

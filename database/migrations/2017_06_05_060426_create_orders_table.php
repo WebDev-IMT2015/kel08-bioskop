@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->integer('id_jtf');
             $table->integer('jumlah_tiket');
             $table->date('tlg_pesan');
+            $table->timestamps();
         });
     }
 

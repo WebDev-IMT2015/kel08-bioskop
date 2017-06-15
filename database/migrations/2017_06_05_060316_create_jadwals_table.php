@@ -18,6 +18,7 @@ class CreateJadwalsTable extends Migration
             $table->integer('id_film');
             $table->date('tgl_tayang');
             $table->date('tgl_berhenti');
+            $table->timestamps();
         });
     }
 
