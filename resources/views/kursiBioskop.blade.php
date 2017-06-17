@@ -82,6 +82,10 @@
         background-color: green;
       }
 
+      .taken {
+        background-color: red;
+      }
+
     </style>
   </head>
   <body>

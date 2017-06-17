@@ -7,10 +7,11 @@
   <body>
 	<?php
 	  	$unique = $dayFiltered->unique('id_studio', 'id_film');
-		echo '<table id="tabelKursi"  onclick="routeMe(event)">';
+		echo '<table id="tabelKursi"  onclick="routeMe(this)">';
 
    		@foreach ($unique as $films) {
-		    echo "<tr><td>".{{ $films->id_film }}."|".{{ $films->id_studio }}."</td>";
+   			$filmNames = $film->where('id_film', $films->id_film)->first();
+		    echo "<tr><td>".{{ $filmNames->judul }}."|".{{ $films->id_studio }}."</td>";
 		    
 		    $showtimes = $jtf->where('id_studio', $films->id_studio)
 		    	->where('id_film', $films->id_film);//real magic

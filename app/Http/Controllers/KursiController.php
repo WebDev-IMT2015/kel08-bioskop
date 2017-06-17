@@ -19,8 +19,8 @@ class KursiController extends Controller
         // $studio = Studio::all();
 
         // $id_studio = $studio->where()
-        $id_film = $film->where('judul',$film);
-        $id_jtf = $jtf->where('id_studio', $studio)->where('id_film', $id_film)->where('jam', $jam);
+        $id_film = $film->where('judul',$film)->first();
+        $id_jtf = $jtf->where('id_studio', $studio)->where('id_film', $id_film)->where('jam', $jam)->first();
         $filtered = $pesanan->where('id_jtf',$id_jtf);
 
 		return view('kursibioskop')->with('pesanan', $filtered);
