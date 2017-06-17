@@ -24,13 +24,26 @@ Route::get('/bioskop', function(){
 });
 
 
-Route::POST('film', 'FilmController@insertFilm');
 
+Route::get('film', 'FilmController@index');
+Route::POST('film', 'FilmController@insertFilm');
+Route::get('film/{id}/edit', 'FilmController@edit')->name('film.edit');
+Route::post('film/edit', 'FilmController@update')->name('film.update');
+Route::get('film/delete/{id}', 'FilmController@destroy')->name('film.delete');
+
+
+Route::get('bioskop', 'BioskopController@index');
 Route::POST('bioskop', 'BioskopController@insertBioskop');
+Route::get('bioskop/{id}/edit', 'BioskopController@edit')->name('bioskop.edit');
+Route::post('bioskop/edit', 'BioskopController@update')->name('bioskop.update');
+Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.delete');
+
 
 Route::get('kursibioskop', function (){
 	return view('kursiBioskop');
 });
+
+
 
 Auth::routes();
 

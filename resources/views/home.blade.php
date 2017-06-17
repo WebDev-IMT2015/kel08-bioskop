@@ -8,13 +8,9 @@
                 <div class="panel-heading">Admin Panel</div>
                 @if(Auth::user()->type == 'admin')
                     <div class="panel-body">
-                        Hello {{ Auth::user()->name }} <br>
-                        Email anda : {{ Auth::user()->email }} <br>
-                        Jabatan : {{ Auth::user()->type}}
+                        Welcome {{ Auth::user()->name }} <br>
+                        Jabatan : {{ Auth::user()->type}} <br>
                         <div class="content">
-                            <div class="title m-b-md">
-                                CINEMA XXI - ADMIN MODE
-                            </div>
                             @if(Route::has('login'))
                                 @if(Auth::check())
                                     <div class="links">
@@ -31,8 +27,7 @@
                     </div>
                 @else
                     <div class="panel-body">
-                        Hello {{ Auth::user()->name }} <br>
-                        Email anda : {{ Auth::user()->email }} <br>
+                        Welcome {{ Auth::user()->name }} <br>
                         Jabatan : {{ Auth::user()->type}}
                     </div>
                 @endif
