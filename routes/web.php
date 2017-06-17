@@ -31,6 +31,7 @@ Route::get('/kursibioskop', function (){
 	return view('kursiBioskop');
 });
 
+Route::POST('addOrder', 'KursiController@');
 
 Route::get('film', 'FilmController@index');
 Route::POST('film', 'FilmController@insertFilm');

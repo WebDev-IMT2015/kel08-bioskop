@@ -200,12 +200,37 @@
 <script>
 
 function ordt(e){ 
-    if(window.confirm("Are you sure you want to \n order seat number "+e.target.id+" ?")){
-      window.alert("Successfully ordered seat number "+e.target.id);
-    }else{
-      //cancelled
-    }
+  if(window.confirm("Are you sure you want to \n order seat number "+e.target.id+" ?")){
+    post('addOrder', {id_customer: user ,id_kursi: e.target.id, id_film: "", id_jtf: ""});
+    window.alert("Successfully ordered seat number "+e.target.id);
+  }else{
+    //cancelled
   }
+}
+
+  function post(path, params, method) {
+  method = method || "post"; // Set method to post by default if not specified.
+
+  // The rest of this code assumes you are not using a library.
+  // It can be made less wordy if you use one.
+  var form = document.createElement("form");
+  form.setAttribute("method", method);
+  form.setAttribute("action", path);
+
+  for(var key in params) {
+      if(params.hasOwnProperty(key)) {
+          var hiddenField = document.createElement("input");
+          hiddenField.setAttribute("type", "hidden");
+          hiddenField.setAttribute("name", key);
+          hiddenField.setAttribute("value", params[key]);
+
+          form.appendChild(hiddenField);
+       }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
+}
 
 /*//Get the modal
 var modal = document.getElementById('myModal');
