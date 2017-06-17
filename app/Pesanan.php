@@ -9,6 +9,6 @@ class Pesanan extends Model
     protected $primaryKey = 'id_pesanan';
 
     protected $fillable = [
-    	'id_film', 'id_customer', 'id_kursi', 'id_jtf'
+    	'id_jtf', 'id_kursi', 'jumlah_tiket','tgl_pesan'
     ];
 }

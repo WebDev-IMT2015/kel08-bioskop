@@ -76,14 +76,19 @@
         text-decoration: none;
         cursor: pointer;
       }
-      td:hover{background-color:red}
+      td:hover{background-color:orange}
+
+      .Selected {
+        background-color: green;
+      }
+
     </style>
   </head>
   <body>
 
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
-        <table id="tabelKursi" onclick="ordt(event)" border="1">
+        <table id="tabelKursi" onclick="ordt(event)">
         <tr>
             <th colspan="10"><p align="center">Layar</p></th>
           </tr>
@@ -186,6 +191,8 @@
         </table>
     </div>
 
+    <button onclick="addOrder()">Order</button>
+
     <!-- The Modal -->
 {{-- <div id="myModal" class="modal"> --}}
 
@@ -199,12 +206,40 @@
 
 <script>
 
+var addClass = function(elem, className) {
+    if (elem.className.indexOf(className) == -1) {
+        elem.className += " " + className;
+    } else {
+        elem.className = elem.className.replace(" " + className, "");    
+    }
+};
+
+
 function ordt(e){ 
-  if(window.confirm("Are you sure you want to \n order seat number "+e.target.id+" ?")){
-    post('addOrder', {id_customer: $id_customer ,id_kursi: e.target.id, id_film: $id_film, id_jtf: $id_jtf});
-    window.alert("Successfully ordered seat number "+e.target.id);
+  addClass(e.target, "Selected");
+}
+
+function addOrder(){
+  var x = document.getElementsByClassName("Selected");
+  var kursi = "";
+  for (var i = 0; i < x.length; i++) {
+    if(i==x.length-1){
+      kursi += x[i].id;
+    }
+    else{
+      kursi += x[i].id+":";
+    }
+  }
+
+  if(x.length>0){
+    if(window.confirm("Are you sure you want to \n order seat number(s) "+kursi+" ?")){
+      post('addOrder', {id_jtf: $id_jtf, jumlah_tiket : x.length ,id_kursi: kursi});
+      window.alert("Successfully ordered seat number(s) "+kursi);
+    }else{
+      //cancelled
+    }
   }else{
-    //cancelled
+    window.alert("No seats selected");
   }
 }
 
