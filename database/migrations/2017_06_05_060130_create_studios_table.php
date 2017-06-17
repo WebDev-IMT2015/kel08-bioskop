@@ -15,7 +15,8 @@ class CreateStudiosTable extends Migration
     {
         Schema::create('studios', function (Blueprint $table) {
             $table->increments('id_studio');
-            $table->integer('id_bioskop');
+            $table->integer('id_bioskop')->unsigned();
+            $table->foreign('id_bioskop')->references('id_bioskop')->on('bioskops');
             $table->string('jenis');
             $table->integer('jumlah_kursi');
             $table->integer('status');

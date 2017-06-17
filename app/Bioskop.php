@@ -13,7 +13,4 @@ class Bioskop extends Model
     	'nama', 'lokasi', 'status'
     ];
 
-    public function studio(){
-    return $this->belongsTo('App\Studio', 'id_bioskop', 'id_bioskop');
-	}
 }

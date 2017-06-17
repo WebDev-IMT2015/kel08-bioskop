@@ -47,6 +47,7 @@ Route::post('bioskop/edit', 'BioskopController@update')->name('bioskop.update');
 Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.delete');
 
 
+Route::get('studio', 'BioskopController@getBioskop');
 Route::POST('studio', 'StudioController@insertStudio');
 
 

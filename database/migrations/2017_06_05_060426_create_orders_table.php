@@ -15,7 +15,8 @@ class CreateOrdersTable extends Migration
     {
        Schema::create('orders', function (Blueprint $table) {
             $table->increments('id_order');
-            $table->integer('id_jtf');
+            $table->integer('id_jtf')->unsigned();
+            $table->foreign('id_jtf')->references('id_jtf')->on('jam_tayang_films');
             $table->integer('jumlah_tiket');
             $table->date('tlg_pesan');
             $table->timestamps();

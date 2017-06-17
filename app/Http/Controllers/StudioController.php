@@ -10,7 +10,7 @@ class StudioController extends Controller
 {
     public function insertStudio(Request $request){
     	$studio = new Studio;
-    	$studio->bioskop()->associate($request->input('id_bioskop'));
+    	$studio->id_bioskop = $request->input('id_bioskop');
     	$studio->jenis = $request->input('jenis');
     	$studio->jumlah_kursi = $request->input('jumlah_kursi');
     	$studio->status = 1;

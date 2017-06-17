@@ -12,6 +12,11 @@ class BioskopController extends Controller
         return view('bioskop')->with('bioskop', $bioskop);
     }
 
+    public function getBioskop(){
+        $bioskop = Bioskop::all();
+        return view('studio')->with('bioskop', $bioskop);
+    }
+
     public function insertBioskop(Request $request){
 
     	$bioskop = new Bioskop;

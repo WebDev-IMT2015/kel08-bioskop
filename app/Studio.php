@@ -12,7 +12,4 @@ class Studio extends Model
     	'jenis', 'jumlah_kursi', 'status'
     ];
 
-    public function bioskop(){
-    return $this->hasOne('App\Bioskop', 'id_bioskop', 'id_bioskop');
-	}
 }

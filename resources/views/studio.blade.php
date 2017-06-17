@@ -19,10 +19,26 @@
 						<form class="form-horizontal" role="form" method="POST">
 							{{ csrf_field() }}
 							<div class="form-group">
+								<label for="bioskop" class="col-md-4 control-label">Bioskop</label>
+
+								<div class="col-md-6">
+									<select id="bioskop" name="id_bioskop" required>
+										@if(isset($bioskop))
+											@foreach($bioskop as $bskp)
+												<option value="{{ $bskp->id_bioskop }}">{{ $bskp->nama }}</option>
+											@endforeach
+										@else
+											<option>Belum ada Bioskop</option>
+										@endif
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
 								<label for="Jenis" class="col-md-4 control-label">Jenis Studio</label>
 
 								<div class="col-md-6">
-									<select id="jenis" name="jenis" required="">
+									<select id="jenis" name="jenis" required>
 										<option value="reguler">Reguler</option>
 										<option value="sphereX">SphereX</option>
 									</select>
@@ -30,10 +46,10 @@
 							</div>
 
 							<div class="form-group">
-								<label for="Jumlah" class="col-md-4">Jumlah Kursi</label>
+								<label for="Jumlah" class="col-md-4 control-label	">Jumlah Kursi</label>
 
 								<div class="col-md-6">
-									<input type="number" name="jumlah" id="jumlah">
+									<input type="number" name="jumlah_kursi" id="jumlah">
 								</div>
 							</div>
 
