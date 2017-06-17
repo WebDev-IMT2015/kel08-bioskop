@@ -201,7 +201,7 @@
 
 function ordt(e){ 
   if(window.confirm("Are you sure you want to \n order seat number "+e.target.id+" ?")){
-    post('addOrder', {id_customer: user ,id_kursi: e.target.id, id_film: "", id_jtf: ""});
+    post('addOrder', {id_customer: $id_customer ,id_kursi: e.target.id, id_film: $id_film, id_jtf: $id_jtf});
     window.alert("Successfully ordered seat number "+e.target.id);
   }else{
     //cancelled

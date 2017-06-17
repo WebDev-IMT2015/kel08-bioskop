@@ -7,7 +7,13 @@ use Illuminate\Http\Request;
 class KursiController extends Controller
 {
 
-	public function insertFilm(Request $request){
+	public function index($id_film, $id_jtf, $id_customer){
+
+		return view('kursibioskop')->with('id_film', $id_film)
+		->with('id_jtf', $id_jtf)->with('id_customer', $id_customer);
+    }
+
+	public function addOrder(Request $request){
 
     	$nama = $request->input('id_customer');
     	$kursi = $request->input('id_kursi');
