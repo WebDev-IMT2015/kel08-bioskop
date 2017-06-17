@@ -15,18 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/addfilm', function(){
-	return view('addfilm');
+Route::get('/film', function(){
+	return view('film');
 });
 
-Route::get('/addbioskop', function(){
-	return view('addbioskop');
+Route::get('/bioskop', function(){
+	return view('bioskop');
 });
 
 
-Route::POST('addfilm', 'FilmController@insertFilm');
+Route::POST('film', 'FilmController@insertFilm');
 
-Route::POST('addbioskop', 'BioskopController@insertBioskop');
+Route::POST('bioskop', 'BioskopController@insertBioskop');
 
 Route::get('kursibioskop', function (){
 	return view('kursiBioskop');

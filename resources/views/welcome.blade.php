@@ -80,16 +80,19 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    CINEMA XXI - ADMIN MODE
+                    CINEMA XXI 
                 </div>
-
-                <div class="links">
-                    <a href="{{ url('/addfilm')}}">Tambah film</a>
-                    <a href="{{ url('/addbioskop')}}">Tambah bioskop</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                {{-- @if(Route::has('login'))
+                    @if(Auth::check())
+                        <div class="links">
+                            <a href="{{ url('/film')}}">Tambah film</a>
+                            <a href="{{ url('/bioskop')}}">Tambah bioskop</a>
+                            <a href="https://laravel-news.com">News</a>
+                            <a href="https://forge.laravel.com">Forge</a>
+                            <a href="https://github.com/laravel/laravel">GitHub</a>
+                        </div>
+                    @endif
+                @endif --}}
             </div>
         </div>
     </body>
