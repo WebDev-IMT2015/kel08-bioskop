@@ -12,4 +12,8 @@ class Bioskop extends Model
     protected $fillable = [
     	'nama', 'lokasi', 'status'
     ];
+
+    public function studio(){
+    return $this->belongsTo('Studio', 'id_bioskop');
+	}
 }

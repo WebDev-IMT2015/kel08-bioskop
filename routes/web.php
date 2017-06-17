@@ -23,6 +23,9 @@ Route::get('/bioskop', function(){
 	return view('bioskop');
 });
 
+Route::get('/studio', function(){
+	return view('studio');
+});
 
 
 Route::get('film', 'FilmController@index');
@@ -38,6 +41,8 @@ Route::get('bioskop/{id}/edit', 'BioskopController@edit')->name('bioskop.edit');
 Route::post('bioskop/edit', 'BioskopController@update')->name('bioskop.update');
 Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.delete');
 
+
+Route::POST('studio', 'StudioController@insertStudio');
 
 Route::get('kursibioskop', function (){
 	return view('kursiBioskop');

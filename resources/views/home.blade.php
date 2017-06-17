@@ -15,8 +15,8 @@
                                 @if(Auth::check())
                                     <div class="links">
                                         <a href="{{ url('/film')}}">Film</a><br>
-                                        <a href="{{ url('/bioskop')}}">Boskop</a><br>
-                                        <a href="https://laravel-news.com">Studio</a><br>
+                                        <a href="{{ url('/bioskop')}}">Bioskop</a><br>
+                                        <a href="{{ url('/studio')}}">Studio</a><br>
                                         <a href="https://forge.laravel.com">Jadwal</a><br>
                                         <a href="https://github.com/laravel/laravel">Jam Tanyang</a><br>
                                         <a href="https://github.com/laravel/laravel">Laporan Penjualan</a><br>

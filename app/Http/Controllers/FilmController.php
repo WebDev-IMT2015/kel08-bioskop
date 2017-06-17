@@ -13,14 +13,10 @@ class FilmController extends Controller
     }
 
     public function insertFilm(Request $request){
-
-    	$judul = $request->input('judul');
-    	$durasi = $request->input('durasi');
-    	$rate = $request->input('rate_umur');
     	$film = new Film;
-    	$film->judul = $judul;
-    	$film->durasi = $durasi;
-    	$film->rate_umur = $rate;
+    	$film->judul = $request->input('judul');
+    	$film->durasi = $request->input('durasi');
+    	$film->rate_umur = $request->input('rate_umur');
     	$film->save();
 
 		return redirect('film');

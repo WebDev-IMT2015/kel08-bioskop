@@ -11,4 +11,8 @@ class Studio extends Model
     protected $fillable = [
     	'jenis', 'jumlah_kursi', 'status'
     ];
+
+    public function bioskop(){
+    return $this->hasOne('Bioskop', 'id_bioskop');
+	}
 }
