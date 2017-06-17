@@ -11,7 +11,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Username</label>
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
@@ -63,9 +63,13 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">Type</label>
 
-                            <div class="col-md-6">
-                                <input id="admin" type="radio" name="type" value="admin"> <label for="admin"> Admin</label><br>
-                                <input id="cs" type="radio" name="type" value="customerservice" checked> <label for="cs"> Customer Service</label><br>
+                            <div class="col-md-6">  
+                                <select name="type" class="form-control">
+                                    <option value="admin">Admin</option>
+                                    <option value="customerservice">Customer Service</option>
+                                </select>
+                                {{-- <input id="admin" type="radio" name="type" value="admin"> <label for="admin"> Admin</label><br>
+                                <input id="cs" type="radio" name="type" value="customerservice" checked> <label for="cs"> Customer Service</label><br> --}}
                             </div>
                         </div>
 

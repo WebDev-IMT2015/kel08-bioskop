@@ -83,7 +83,7 @@
 
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
-        <table id="tabelKursi" onclick="javascript::ordt(event)" border="1">
+        <table id="tabelKursi" onclick="ordt(event)" border="1">
         <tr>
             <th colspan="10"><p align="center">Layar</p></th>
           </tr>
@@ -101,85 +101,85 @@
           </tr>
           <tr>
             <th>A</th>
-            <td id="myBtnA1"> </td>
-            <td id="myBtnA2"> </td>
-            <td id="myBtnA3"> </td>
-            <td id="myBtnA4"> </td>
-            <td id="myBtnA5"> </td>
-            <td id="myBtnA6"> </td>
-            <td id="myBtnA7"> </td>
-            <td id="myBtnA8"> </td>
-            <td id="myBtnA9"> </td>
+            <td id="A1"> </td>
+            <td id="A2"> </td>
+            <td id="A3"> </td>
+            <td id="A4"> </td>
+            <td id="A5"> </td>
+            <td id="A6"> </td>
+            <td id="A7"> </td>
+            <td id="A8"> </td>
+            <td id="A9"> </td>
           </tr>
           <tr>
             <th>B</th>
-            <td id="myBtnB1"> </td>
-            <td id="myBtnB2"> </td>
-            <td id="myBtnB3"> </td>
-            <td id="myBtnB4"> </td>
-            <td id="myBtnB5"> </td>
-            <td id="myBtnB6"> </td>
-            <td id="myBtnB7"> </td>
-            <td id="myBtnB8"> </td>
-            <td id="myBtnB9"> </td>
+            <td id="B1"> </td>
+            <td id="B2"> </td>
+            <td id="B3"> </td>
+            <td id="B4"> </td>
+            <td id="B5"> </td>
+            <td id="B6"> </td>
+            <td id="B7"> </td>
+            <td id="B8"> </td>
+            <td id="B9"> </td>
           </tr>
           <tr>
             <th>C</th>
-            <td id="myBtnC1"> </td>
-            <td id="myBtnC2"> </td>
-            <td id="myBtnC3"> </td>
-            <td id="myBtnC4"> </td>
-            <td id="myBtnC5"> </td>
-            <td id="myBtnC6"> </td>
-            <td id="myBtnC7"> </td>
-            <td id="myBtnC8"> </td>
-            <td id="myBtnC9"> </td>
+            <td id="C1"> </td>
+            <td id="C2"> </td>
+            <td id="C3"> </td>
+            <td id="C4"> </td>
+            <td id="C5"> </td>
+            <td id="C6"> </td>
+            <td id="C7"> </td>
+            <td id="C8"> </td>
+            <td id="C9"> </td>
           </tr>
           <tr>
             <th>D</th>
-            <td id="myBtnD1"> </td>
-            <td id="myBtnD2"> </td>
-            <td id="myBtnD3"> </td>
-            <td id="myBtnD4"> </td>
-            <td id="myBtnD5"> </td>
-            <td id="myBtnD6"> </td>
-            <td id="myBtnD7"> </td>
+            <td id="D1"> </td>
+            <td id="D2"> </td>
+            <td id="D3"> </td>
+            <td id="D4"> </td>
+            <td id="D5"> </td>
+            <td id="D6"> </td>
+            <td id="D7"> </td>
             <th></th>
             <th></th>
           </tr>
           <tr>
             <th>E</th>
-            <td id="myBtnE1"> </td>
-            <td id="myBtnE2"> </td>
-            <td id="myBtnE3"> </td>
-            <td id="myBtnE4"> </td>
-            <td id="myBtnE5"> </td>
-            <td id="myBtnE6"> </td>
-            <td id="myBtnE7"> </td>
+            <td id="E1"> </td>
+            <td id="E2"> </td>
+            <td id="E3"> </td>
+            <td id="E4"> </td>
+            <td id="E5"> </td>
+            <td id="E6"> </td>
+            <td id="E7"> </td>
             <th></th>
             <th></th>
           </tr>
           <tr>
             <th>F</th>
-            <td id="myBtnF1"> </td>
-            <td id="myBtnF2"> </td>
-            <td id="myBtnF3"> </td>
-            <td id="myBtnF4"> </td>
-            <td id="myBtnF5"> </td>
-            <td id="myBtnF6"> </td>
-            <td id="myBtnF7"> </td>
+            <td id="F1"> </td>
+            <td id="F2"> </td>
+            <td id="F3"> </td>
+            <td id="F4"> </td>
+            <td id="F5"> </td>
+            <td id="F6"> </td>
+            <td id="F7"> </td>
             <th> </th>
             <th> </th>
           </tr>
           <tr>
             <th>G</th>
-            <td id="myBtnG1"> </td>
-            <td id="myBtnG2"> </td>
-            <td id="myBtnG3"> </td>
-            <td id="myBtnG4"> </td>
-            <td id="myBtnG5"> </td>
-            <td id="myBtnG6"> </td>
-            <td id="myBtnG7"> </td>
+            <td id="G1"> </td>
+            <td id="G2"> </td>
+            <td id="G3"> </td>
+            <td id="G4"> </td>
+            <td id="G5"> </td>
+            <td id="G6"> </td>
+            <td id="G7"> </td>
             <th> </th>
             <th> </th>
           </tr>
@@ -187,48 +187,54 @@
     </div>
 
     <!-- The Modal -->
-<div id="myModal" class="modal">
+{{-- <div id="myModal" class="modal"> --}}
 
   <!-- Modal content -->
-  <div class="modal-content">
+ {{--  <div class="modal-content">
     <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+    <p>asdasdsad</p>
   </div>
 
-</div>
+</div> --}}
 
 <script>
 
 function ordt(e){ 
-    alert(e.target.id); //current cell
-    //alert(e.target.parentNode.innerText); //Current row.
-}​
+    if(window.confirm("Are you sure you want to \n order seat number "+e.target.id+" ?")){
+      window.alert("Successfully ordered seat number "+e.target.id);
+    }else{
+      //cancelled
+    }
+  }
 
-// Get the modal
-// var modal = document.getElementById('myModal');
+/*//Get the modal
+var modal = document.getElementById('myModal');
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}*/
 
 // // Get the button that opens the modal
 // var btn = document.getElementById("myBtn");
 
-// // Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
+
 
 // // When the user clicks the button, open the modal 
 // btn.onclick = function() {
 //     modal.style.display = "block";
 // }
 
-// // When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-//     modal.style.display = "none";
-// }
 
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
 </script>
   </body>
 </html>
