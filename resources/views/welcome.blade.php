@@ -87,9 +87,6 @@
                         <div class="links">
                             <a href="{{ url('/film')}}">Tambah film</a>
                             <a href="{{ url('/bioskop')}}">Tambah bioskop</a>
-                            <a href="https://laravel-news.com">News</a>
-                            <a href="https://forge.laravel.com">Forge</a>
-                            <a href="https://github.com/laravel/laravel">GitHub</a>
                         </div>
                     @endif
                 @endif --}}
