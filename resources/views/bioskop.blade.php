@@ -4,7 +4,7 @@
 	<title>Cinema XXI</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <style>
+	  {{-- <style>
 	    input[type=text], select {
 	        width: 100%;
 	        padding: 10px 20px;
@@ -68,7 +68,7 @@
 		    border: 1px solid #ddd; /* Add a grey border */
 		    margin-bottom: 12px; /* Add some space below the input */
 		}
-	  </style>
+	  </style> --}}
 </head>
 <body>
 	<div class="container">
@@ -89,7 +89,6 @@
 						<form class="form-horizontal" role="form" method="POST"">
 					@endif
 							{{ csrf_field() }}
-							<h1>Tambah Bioskop</h1>
 							<div class="form-group">
 								<label for="nama" class="col-md-4 control-label">Nama Bioskop</label>
 
@@ -116,8 +115,6 @@
 					                @else
 					                  <button type="submit" class="btn btn-success">Tambah Bioskop</button>
 					                @endif
-
-									<input type="submit" value="Submit" placeholder="Tambah Bioskop">
 								</div>
 							</div>
 						</form>
