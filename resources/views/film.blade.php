@@ -160,6 +160,7 @@
                 </thead>
                 <tbody>
                   @foreach($film as $flm)
+                    @if($flm->status == 1)
                     <tr>
                       <th style = "text-align: center;">{{ $flm->id_film }}</th>
                       <th style = "text-align: center;">{{ $flm->judul }}</th>
@@ -177,6 +178,7 @@
                         <a href="{{ route('film.delete', $flm->id_film) }}" class="btn btn-xs btn-danger">Hapus</a>
                       </th>
                     </tr>
+                    @endif
                   @endforeach
                 </tbody>
               </table>

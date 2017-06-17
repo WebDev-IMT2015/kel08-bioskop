@@ -48,7 +48,8 @@ class BioskopController extends Controller
 
     public function destroy($id){
         $bioskop = Bioskop::find($id);
-        $bioskop->delete();
+        $bioskop->status=0;
+        $bioskop->save();
 
         return redirect('bioskop');
     }

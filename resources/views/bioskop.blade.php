@@ -134,22 +134,24 @@
 								</thead>
 								<tbody>
 				                  @foreach($bioskop as $bskp)
-				                    <tr>
-				                      <th style = "text-align: center;">{{ $bskp->id_bioskop}}</th>
-				                      <th style = "text-align: center;">{{ $bskp->nama }}</th>
-				                      <th style = "text-align: center;">{{ $bskp->lokasi }}</th>
-				                      <th style = "text-align: center;">
-				                      <a href="{{ route('bioskop.edit', $bskp->id_bioskop) }}" class="btn btn-xs btn-warning">Ubah</a>
-				                      &nbsp;&nbsp;/&nbsp;&nbsp;
-				                        <!-- <form action="{{ route('bioskop.delete', $bskp->id_bioskop) }}" method="POST">
-				                        {{ csrf_field() }}
-				                        {{ method_field('DELETE') }}
-				                        <input type="hidden" name="id_bioskop" value="DELETE">
-				                        <button type="sumbit" class="btn btn-danger">Hapus</button>
-				                        </form> -->
-				                        <a href="{{ route('bioskop.delete', $bskp->id_bioskop) }}" class="btn btn-xs btn-danger">Hapus</a>
-				                      </th>
-				                    </tr>
+				                    @if($bskp->status == 1)
+										<tr>
+					                      <th style = "text-align: center;">{{ $bskp->id_bioskop}}</th>
+					                      <th style = "text-align: center;">{{ $bskp->nama }}</th>
+					                      <th style = "text-align: center;">{{ $bskp->lokasi }}</th>
+					                      <th style = "text-align: center;">
+					                      <a href="{{ route('bioskop.edit', $bskp->id_bioskop) }}" class="btn btn-xs btn-warning">Ubah</a>
+					                      &nbsp;&nbsp;/&nbsp;&nbsp;
+					                        <!-- <form action="{{ route('bioskop.delete', $bskp->id_bioskop) }}" method="POST">
+					                        {{ csrf_field() }}
+					                        {{ method_field('DELETE') }}
+					                        <input type="hidden" name="id_bioskop" value="DELETE">
+					                        <button type="sumbit" class="btn btn-danger">Hapus</button>
+					                        </form> -->
+					                        <a href="{{ route('bioskop.delete', $bskp->id_bioskop) }}" class="btn btn-xs btn-danger">Hapus</a>
+					                      </th>
+				                    	</tr>
+				                    @endif
 				                  @endforeach
 				                </tbody>
 							</table>

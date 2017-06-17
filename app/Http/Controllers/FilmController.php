@@ -17,6 +17,7 @@ class FilmController extends Controller
     	$film->judul = $request->input('judul');
     	$film->durasi = $request->input('durasi');
     	$film->rate_umur = $request->input('rate_umur');
+        $film->status = 1;
     	$film->save();
 
 		return redirect('film');
@@ -43,7 +44,8 @@ class FilmController extends Controller
 
     public function destroy($id){
         $film = Film::find($id);
-        $film->delete();
+        $film->status = 0;
+        $film->save();
 
         return redirect('film');
     }

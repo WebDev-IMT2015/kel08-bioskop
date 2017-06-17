@@ -9,6 +9,6 @@ class film extends Model
     protected $primaryKey = 'id_film';
 
     protected $fillable = [
-    	'judul', 'durasi', 'rate_umur'
+    	'judul', 'durasi', 'rate_umur', 'status'
     ];
 }

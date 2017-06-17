@@ -21,6 +21,7 @@ class CreateJadwalsTable extends Migration
             $table->foreign('id_film')->references('id_film')->on('films');
             $table->date('tgl_tayang');
             $table->date('tgl_berhenti');
+            $table->integer('status');
             $table->timestamps();
         });
     }
