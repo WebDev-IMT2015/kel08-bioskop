@@ -3,17 +3,17 @@
   <head>
     <style>
       body {background-color: white;}
-      h2   {color: black;}
-
+      h2 
+      {
+        color: black;
+        text-align: center;
+      }
       table
       {
           border-collapse: collapse;
           /*width: 100%;*/
           border: 10px solid white;
       }
-
-
-
       td
       {
           padding: 8px;
@@ -22,7 +22,6 @@
           background-color: #3e9ed6;
           border: 10px solid white;
       }
-
       th
       {
           padding: 8px;
@@ -31,51 +30,52 @@
           background-color: white;
           border: 10px solid white;
       }
-
       .center
       {
         margin: auto;
-        width: 30%;
+        width: 25%;
+      }
+      .modal
+      {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
       }
 
+      /* Modal Content */
+      .modal-content
+      {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
 
-      .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+      /* The Close Button */
+      .close
+      {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
 
-/* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
+      .close:hover,
+      .close:focus
+      {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
       td:hover{background-color:red}
     </style>
   </head>
