@@ -59,7 +59,7 @@
 				<div class="panel panel-default"> -->
 				<!-- <div class="panel-heading" id="main"><h1>Tambah Film</h1></div> -->
 					<div class="panel-body">
-						<!-- {{ csrf_field() }} -->
+						{{ csrf_field() }}
             <form class="form-horizontal" role="form" method="POST"">
               <h1>Tambah Film</h1>
 
