@@ -4,16 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pesanan;
+use App\Jam_Tayang_Film;
+use App\film;
 
 class KursiController extends Controller
 {
 
-	public function index($id_film, $id_jtf){
+	public function index($studio,$film,$jam){
+
 
 		$pesanan = Pesanan::all();
+        $jtf = Jam_Tayang_Film::all();
+        $film = Film::all();
+        // $studio = Studio::all();
 
-		return view('kursibioskop')->with('id_film', $id_film)
-		->with('id_jtf', $id_jtf)->with('pesanan', $pesanan);
+        // $id_studio = $studio->where()
+        $id_film = $film->where('judul',$film);
+        $id_jtf = $jtf->where('id_studio', $studio)->where('id_film', $id_film)->where('jam', $jam);
+        $filtered = $pesanan->where('id_jtf',$id_jtf);
+
+		return view('kursibioskop')->with('pesanan', $filtered);
     }
 
 	public function addOrder(Request $request){

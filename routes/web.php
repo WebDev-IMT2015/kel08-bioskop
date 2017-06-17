@@ -27,10 +27,15 @@ Route::get('/studio', function(){
 	return view('studio');
 });
 
-Route::get('/kursibioskop', function (){
-	return view('kursiBioskop');
-});
+// Route::get('/kursibioskop', function (){
+// 	return view('kursiBioskop');
+// });
 
+Route::get('/pilihtanggal', 'JadwalController@index')
+Route::get('/pilihjam/{$date}', 'JamTayangFilmController@dateClick');
+// Route::get('kursibioskop/{event}/remind/{user}', [
+// 'as' => 'remindHelper', 'uses' => 'KursiController@index']);
+Route::get('/kursibioskop/{studio}/{film}/{jam}', 'KursiController@index');
 Route::POST('addOrder', 'KursiController@insertOrder');
 
 Route::get('film', 'FilmController@index');
