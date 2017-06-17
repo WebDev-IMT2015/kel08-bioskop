@@ -14,6 +14,6 @@ class Bioskop extends Model
     ];
 
     public function studio(){
-    return $this->belongsTo('Studio', 'id_bioskop');
+    return $this->belongsTo('App\Studio', 'id_bioskop', 'id_bioskop');
 	}
 }

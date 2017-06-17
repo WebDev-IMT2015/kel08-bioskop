@@ -13,6 +13,6 @@ class Studio extends Model
     ];
 
     public function bioskop(){
-    return $this->hasOne('Bioskop', 'id_bioskop');
+    return $this->hasOne('App\Bioskop', 'id_bioskop', 'id_bioskop');
 	}
 }

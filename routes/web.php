@@ -27,6 +27,10 @@ Route::get('/studio', function(){
 	return view('studio');
 });
 
+Route::get('/kursibioskop', function (){
+	return view('kursiBioskop');
+});
+
 
 Route::get('film', 'FilmController@index');
 Route::POST('film', 'FilmController@insertFilm');
@@ -44,9 +48,7 @@ Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.de
 
 Route::POST('studio', 'StudioController@insertStudio');
 
-Route::get('kursibioskop', function (){
-	return view('kursiBioskop');
-});
+
 
 
 
