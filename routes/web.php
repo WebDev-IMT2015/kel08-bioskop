@@ -31,7 +31,8 @@ Route::get('/studio', function(){
 // 	return view('kursiBioskop');
 // });
 
-Route::get('/pilihtanggal', 'JadwalController@index');
+Route::get('/pilihbioskop', 'BioskopController@displayBioskop');
+Route::get('/pilihtanggal/{$nama_bioskop}', 'JamTayangFilmController@index');
 Route::get('/pilihjam/{$date}', 'JamTayangFilmController@dateClick');
 // Route::get('kursibioskop/{event}/remind/{user}', [
 // 'as' => 'remindHelper', 'uses' => 'KursiController@index']);
