@@ -13,12 +13,12 @@
 
    		foreach ($unique as $films) {
    			$filmNames = $film->where('id_film', $films->id_film)->first();
-		    echo "<tr><td>".{{ $filmNames->judul }}."|".{{ $films->id_studio }}."</td>";
+		    echo "<tr><td>{{ $filmNames->judul }}|{{ $films->id_studio }}</td>";
 		    
 		    $showtimes = $jtf->where('id_studio', $films->id_studio)
 		    	->where('id_film', $films->id_film);//real magic
 		    foreach ($showtimes as $t) {
-		    	echo "<td>".{{ $showtimes->jam }}."</td>";
+		    	echo "<td>{{ $showtimes->jam }}</td>";
 		    }
 
 		    echo "</tr>";

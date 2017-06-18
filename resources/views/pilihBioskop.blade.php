@@ -12,7 +12,7 @@
 		echo "<table id='tabelKursi'  onclick='routeMe(event)'>";
 
    		foreach ($bioskop as $places) {
-		    echo "<tr><td>".{{ $places->lokasi }}."|".{{ $places->nama }}."</td></tr>";
+		    echo "<tr><td>{{ $places->lokasi }}|{{ $places->nama }}</td></tr>";
 		}
 
 		echo "</table>";
