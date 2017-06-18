@@ -6,7 +6,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Admin Panel</div>
-                @if(Auth::user()->type == 'admin')
+                @if(Auth::user()->type == "admin")
                     <div class="panel-body">
                         Welcome {{ Auth::user()->name }} <br>
                         Jabatan : {{ Auth::user()->type}} <br>
@@ -14,13 +14,20 @@
                             @if(Route::has('login'))
                                 @if(Auth::check())
                                     <div class="links">
-                                        <a href="{{ url('/film')}}">Film</a><br>
-                                        <a href="{{ url('/bioskop')}}">Bioskop</a><br>
-                                        <a href="{{ url('/studio')}}">Studio</a><br>
+                                        @if(  {{ Auth::user()->type}} == "admin")
+                                            <a href="{{ url('/film')}}">Film</a><br>
+                                            <a href="{{ url('/bioskop')}}">Bioskop</a><br>
+                                            <a href="{{ url('/studio')}}">Studio</a><br>
+                                        @else
+                                            <a href="/pilihbioskop">Bioskop</a><br>
+                                        @endif
                                         <a href="{{ url('/jadwal')}}">Jadwal</a><br>
-                                        <a href="https://github.com/laravel/laravel">Jam Tanyang</a><br>
+                                        <a href="https://github.com/laravel/laravel">Jam Tayang</a><br>
                                         <a href="https://github.com/laravel/laravel">Laporan Penjualan</a><br>
-                                        <a href="{{ url('/user') }}">Users</a>
+                                        @if(  {{ Auth::user()->type}} == admin)
+                                            <a href="{{ url('/user') }}">Users</a>
+                                        @endif
+
                                     </div>
                                 @endif
                             @endif

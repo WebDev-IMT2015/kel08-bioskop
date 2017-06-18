@@ -31,6 +31,7 @@ Route::get('/studio', function(){
 // 	return view('kursiBioskop');
 // });
 
+//cs side
 Route::get('/pilihbioskop', 'BioskopController@displayBioskop');
 Route::get('/pilihtanggal/{$nama_bioskop}', 'JamTayangFilmController@index');
 Route::get('/pilihjam/{$date}', 'JamTayangFilmController@dateClick');

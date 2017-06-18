@@ -5,6 +5,8 @@
 
   </head>
   <body>
+  <button href= "{{ url()->previous() }}"> Back </button>
+
 	<?php
 	  	$unique = $dayFiltered->unique('id_studio', 'id_film');
 		echo "<table id='tabelKursi'  onclick='routeMe(this)'>";

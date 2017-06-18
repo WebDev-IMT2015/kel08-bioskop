@@ -6,6 +6,8 @@
   </head>
   <body>
 
+  <button href= "{{ url()->previous() }}"> Back </button>
+
   	<?php
 	  	$unique = $jtf->unique('tgl_tayang');
 		echo "<table id='tabelKursi'  onclick='routeMe(event)'>";

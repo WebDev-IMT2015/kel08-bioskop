@@ -90,6 +90,8 @@
   </head>
   <body>
 
+  <button href= "{{ url()->previous() }}"> Back </button>
+
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
       <?php

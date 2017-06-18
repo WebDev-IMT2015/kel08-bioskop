@@ -5,6 +5,8 @@
 
   </head>
   <body>
+<!-- probably not needed -->
+  <button href= "{{ url()->previous() }}"> Back </button>
 
   	<?php
 		echo "<table id='tabelKursi'  onclick='routeMe(event)'>";
