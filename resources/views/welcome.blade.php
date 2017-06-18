@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <title>Cinema XXI</title>
 
         <!-- Fonts -->
@@ -69,18 +70,18 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                        <a href="{{ url('/register') }}"><span class="glyphicon glyphicon-registration-mark"></span>Register</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+                        <a href="{{ url('/register') }}"><span class="glyphicon glyphicon-registration-mark"></span>Register</a>
                     @endif
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    CINEMA XXI 
+                    CINEMA XXI
                 </div>
                 {{-- @if(Route::has('login'))
                     @if(Auth::check())
