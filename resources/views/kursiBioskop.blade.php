@@ -93,9 +93,9 @@
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
       <?php
-        echo '<table id="tabelKursi"  onclick="ordt(this,event)">';
+        echo "<table id="tabelKursi"  onclick="ordt(this,event)">";
 
-          echo '<tr>
+          echo "<tr>
             <th> </th>
             <th>1</th>
             <th>2</th>
@@ -106,12 +106,12 @@
             <th>7</th>
             <th>8</th>
             <th>9</th>
-          </tr>';
+          </tr>";
 
           $alphabet = range('A', 'Z');
 
           for ($i=0; $i < 7; $i++) { 
-            echo '<tr> <th>'.$alphabet[i].'</th>';
+            echo "<tr> <th>".$alphabet[i]."</th>";
 
             for ($j=0; $j < 9; $j++) { 
 
@@ -129,13 +129,13 @@
               }
 
               if($f){
-                echo '<td id="'.$id.'" class="Ordered"> </td>';
+                echo "<td id=".$id." class="Ordered"> </td>";
               }
               else{
-                echo '<td id="'.$id.'"> </td>';
+                echo "<td id=".$id."> </td>";
               }
             }
-            echo '</tr>';
+            echo "</tr>";
           }
 
         echo "</table>";
