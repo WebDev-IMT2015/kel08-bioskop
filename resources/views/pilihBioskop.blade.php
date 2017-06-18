@@ -9,10 +9,10 @@
   <button href= "{{ url()->previous() }}"> Back </button>
 
   	<?php
-		echo "<table id='tabelKursi'  onclick='routeMe(event)'>";
+		echo "<table id='tabelKursi'  onclick='routeMe(event)' border='1'>";
 
    		foreach ($bioskop as $places) {
-		    echo "<tr><td>{{ $places->lokasi }}|{{ $places->nama }}</td></tr>";
+		    echo "<tr><td>$places->lokasi|$places->nama</td></tr>";
 		}
 
 		echo "</table>";
@@ -21,8 +21,7 @@
 	<script type="text/javascript">
 		function routeMe(e){
 			var n = e.target.innerHTML;
-			var sp = str.split("|");
-
+			var sp = n.split("|");
 		    document.location.href="/pilihtanggal/"+sp[1];
 		}
 

@@ -17,7 +17,7 @@ class JamTayangFilmController extends Controller
       $id_bioskop = $bioskop->where('nama',$nama_bioskop)->first();
       //get based on bioskop
       $tanggal = $jtf->where('id_bioskop',$id_bioskop);
-    	return view ('pilihTanggal') ->with('jtf', $tanggal);
+    	return view ('/pilihTanggal') ->with('jtf', $tanggal);
     }
 
     public function dateClick($date){
@@ -27,7 +27,7 @@ class JamTayangFilmController extends Controller
    		$dayFiltered = $jtf->where('tgl_tayang', toDateTimeString());
       $filmData = film::all();
 
-   		return view ('pilihJam') ->with('dayFiltered', $dayFiltered)->with('filmData',$filmData);
+   		return view ('pilihTanggal') ->with('dayFiltered', $dayFiltered)->with('filmData',$filmData);
    		
 	}
 
