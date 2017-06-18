@@ -9,7 +9,7 @@
 	  	$unique = $dayFiltered->unique('id_studio', 'id_film');
 		echo '<table id="tabelKursi"  onclick="routeMe(this)">';
 
-   		@foreach ($unique as $films) {
+   		foreach ($unique as $films) {
    			$filmNames = $film->where('id_film', $films->id_film)->first();
 		    echo "<tr><td>".{{ $filmNames->judul }}."|".{{ $films->id_studio }}."</td>";
 		    

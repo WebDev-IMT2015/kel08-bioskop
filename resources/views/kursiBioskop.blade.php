@@ -82,7 +82,7 @@
         background-color: green;
       }
 
-      .taken {
+      .Ordered {
         background-color: red;
       }
 
@@ -92,7 +92,56 @@
 
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
-        <table id="tabelKursi" onclick="ordt(event)">
+      <?php
+        echo '<table id="tabelKursi"  onclick="ordt(this,event)">';
+
+          echo '<tr>
+            <th> </th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+          </tr>';
+
+          $alphabet = range('A', 'Z');
+
+          for ($i=0; $i < 7; $i++) { 
+            echo '<tr> <th>'.$alphabet[i].'</th>';
+
+            for ($j=0; $j < 9; $j++) { 
+
+              if($i>3 && $j>6){
+                break;
+              }
+
+              $f = false;
+              $col = $j+1;//dont want no trouble
+              $id = $alphabet[i].''.$col;
+              foreach ($pesanan as $checks) {
+                  if($checks->id_kursi == $id){
+                    $f=true;
+                  }
+              }
+
+              if($f){
+                echo '<td id="'.$id.'" class="Ordered"> </td>';
+              }
+              else{
+                echo '<td id="'.$id.'"> </td>';
+              }
+            }
+            echo '</tr>';
+          }
+
+        echo "</table>";
+      ?>
+
+        <!-- <table id="tabelKursi" onclick="ordt(event)">
         <tr>
             <th colspan="10"><p align="center">Layar</p></th>
           </tr>
@@ -192,7 +241,7 @@
             <th> </th>
             <th> </th>
           </tr>
-        </table>
+        </table> -->
     </div>
 
     <button onclick="addOrder()">Order</button>
@@ -219,8 +268,12 @@ var addClass = function(elem, className) {
 };
 
 
-function ordt(e){ 
-  addClass(e.target, "Selected");
+function ordt(obj,e){ 
+  if(obj.className !=Ordered){
+    addClass(e.target, "Selected");
+  }else{
+    window.alert("That seat is already taken");
+  }
 }
 
 function addOrder(){

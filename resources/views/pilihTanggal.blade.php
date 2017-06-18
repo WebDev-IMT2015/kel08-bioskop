@@ -10,7 +10,7 @@
 	  	$unique = $jtf->unique('tgl_tayang');
 		echo '<table id="tabelKursi"  onclick="routeMe(event)">';
 
-   		@foreach ($unique as $films) {
+   		foreach ($unique as $films) {
 		    echo "<tr><td>".{{ $films->tgl_tayang }}."</td></tr>";
 		}
 
