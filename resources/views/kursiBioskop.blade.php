@@ -93,7 +93,7 @@
     <h2>Tampilan Kursi Bioskop</h2>
     <div class="center">
       <?php
-        echo "<table id="tabelKursi"  onclick="ordt(this,event)">";
+        echo "<table id='tabelKursi'  onclick='ordt(this,event)'>";
 
           echo "<tr>
             <th> </th>
@@ -129,7 +129,7 @@
               }
 
               if($f){
-                echo "<td id=".$id." class="Ordered"> </td>";
+                echo "<td id=".$id." class='Ordered'> </td>";
               }
               else{
                 echo "<td id=".$id."> </td>";

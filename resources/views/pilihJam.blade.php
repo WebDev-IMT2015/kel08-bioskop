@@ -7,7 +7,7 @@
   <body>
 	<?php
 	  	$unique = $dayFiltered->unique('id_studio', 'id_film');
-		echo '<table id="tabelKursi"  onclick="routeMe(this)">';
+		echo "<table id='tabelKursi'  onclick='routeMe(this)'>";
 
    		foreach ($unique as $films) {
    			$filmNames = $film->where('id_film', $films->id_film)->first();
