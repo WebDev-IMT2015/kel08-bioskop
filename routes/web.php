@@ -31,7 +31,7 @@ Route::get('/studio', function(){
 // 	return view('kursiBioskop');
 // });
 
-Route::get('/pilihtanggal', 'JadwalController@index')
+Route::get('/pilihtanggal', 'JadwalController@index');
 Route::get('/pilihjam/{$date}', 'JamTayangFilmController@dateClick');
 // Route::get('kursibioskop/{event}/remind/{user}', [
 // 'as' => 'remindHelper', 'uses' => 'KursiController@index']);
@@ -55,7 +55,11 @@ Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.de
 Route::get('studio', 'BioskopController@getBioskop');
 Route::POST('studio', 'StudioController@insertStudio');
 
-
+Route::get('user', 'UserController@index');
+Route::POST('user', 'UserController@insertUser');
+Route::get('user/{id}/edit', 'UserController@edit')->name('user.edit');
+Route::POST('user/edit', 'UserController@update')->name('user.update');
+Route::get('user/delete/{id}', 'UserController@destroy')->name('user.delete');
 
 
 

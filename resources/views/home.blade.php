@@ -20,6 +20,7 @@
                                         <a href="https://forge.laravel.com">Jadwal</a><br>
                                         <a href="https://github.com/laravel/laravel">Jam Tanyang</a><br>
                                         <a href="https://github.com/laravel/laravel">Laporan Penjualan</a><br>
+                                        <a href="{{ url('/user') }}">Users</a>
                                     </div>
                                 @endif
                             @endif
