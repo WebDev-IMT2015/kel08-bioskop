@@ -46,7 +46,7 @@ class UserController extends Controller
     public function destroy($id){
     	$user = User::find($id);
     	$user->status = 0;
-    	$film->save();
+    	$user->save();
 
     	return redirect('user');
     }
