@@ -27,6 +27,15 @@ Route::get('/studio', function(){
 	return view('studio');
 });
 
+Route::get('/datapenjualan', function(){
+	return view('dataPenjualan');
+});
+
+Route::get('/jamtayang', function(){
+	return view('jamtayang');
+});
+
+
 // Route::get('/kursibioskop', function (){
 // 	return view('kursiBioskop');
 // });
@@ -72,8 +81,11 @@ Route::get('jadwal/{id}/edit', 'JadwalController@edit')->name('jadwal.edit');
 Route::POST('jadwal/edit', 'JadwalController@update')->name('jadwal.update');
 Route::get('jadwal/delete/{id}', 'JadwalController@destroy')->name('jadwal.delete');
 
-
-
+Route::get('jamtayang', 'JamTayangFilmController@tampil');
+Route::POST('jamtayang', 'JamTayangFilmController@store');
+Route::get('jamtayang/{id}/edit', 'JamTayangFilmController@edit')->name('jamtayang.edit');
+Route::POST('jamtayang/edit', 'JamTayangFilmController@update')->name('jamtayang.update');
+Route::get('jamtayang/delete/{id}', 'JamTayangFilmController@destroy')->name('jamtayang.delete');
 
 Auth::routes();
 
