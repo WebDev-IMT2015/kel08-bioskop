@@ -13,7 +13,7 @@
       border-radius: 0;
     }
     /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 630px}
+    .row.content {height: 700px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -22,11 +22,11 @@
     }
     
     /* Set black background color, white text and some padding */
-    footer {
+    /*footer {
       background-color: #555;
       color: white;
       padding: 4px;
-    }
+    }*/
     
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 700px) {
@@ -68,7 +68,7 @@
         <li><a href="{{ url('/studio')}}">Studio</a></li>
         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
-        <li class="active"><a>Laporan Penjaualan</a></li>
+        <li class="active"><a a href="{{ url('/datapenjualan')}}">Laporan Penjaualan</a></li>
         <li><a href="{{ url('/user') }}">Users</a></li>
       </ul><br>
     </div>
@@ -118,10 +118,10 @@
     </div>
   </div>
 </div>
-
+<!-- 
 <footer class="container-fluid">
   <h1>Cinema XXI</h1>
-</footer>
+</footer> -->
 
 </body>
 </html>
