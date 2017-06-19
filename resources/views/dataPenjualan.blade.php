@@ -88,6 +88,7 @@
             <th>Studio</th>
             <th>Film</th>
             <th>Jumlah Ticket</th>
+            <th>Harga Tiket</th>
             <th>Total Harga</th>
           </tr>
         </thead>
@@ -106,6 +107,7 @@
                         <th>{{ $stu->jenis }}</th>
                         <th>{{ $fil->judul }}</th>
                         <th>{{ $psn->jumlah_tiket }}</th>
+                        <th>Rp. {{ $jm->harga }}</th>
                         <th>Rp. {{ (int) $psn->jumlah_tiket*(int)$jm->harga }}</th>
                       </tr>
                     @endif

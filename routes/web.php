@@ -36,6 +36,10 @@ Route::get('/jamtayang', function(){
 });
 
 
+Route::get('/printTicket', function(){
+	return view('printTicket');
+});
+
 // Route::get('/kursibioskop', function (){
 // 	return view('kursiBioskop');
 // });
@@ -61,6 +65,7 @@ Route::post('bioskop/edit', 'BioskopController@update')->name('bioskop.update');
 Route::get('bioskop/delete/{id}', 'BioskopController@destroy')->name('bioskop.delete');
 
 Route::get('datapenjualan','OrderController@index');
+Route::get('printTicket','printController@index');
 
 Route::get('studio', 'StudioController@index');
 Route::POST('studio', 'StudioController@insertStudio');
