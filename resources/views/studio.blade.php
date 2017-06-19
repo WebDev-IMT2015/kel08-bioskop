@@ -54,6 +54,12 @@
               {{ csrf_field() }}
             </form>
         </li>
+        <li>
+          <font color="white">
+          Welcome {{ Auth::user()->name }} <br>
+          Jabatan : {{ Auth::user()->type}} <br>
+          </font>
+        </li>
       </ul>
     </div>
   </div>
