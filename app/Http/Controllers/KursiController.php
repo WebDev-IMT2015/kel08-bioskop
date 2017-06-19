@@ -10,17 +10,11 @@ use App\film;
 class KursiController extends Controller
 {
 
-	public function index($studio,$film,$jam){
+	public function index(){
 
 
+        $id_jtf = $_GET['id_jtf'];
 		$pesanan = Pesanan::all();
-        $jtf = Jam_Tayang_Film::all();
-        $film = Film::all();
-        // $studio = Studio::all();
-
-        // $id_studio = $studio->where()
-        $id_film = $film->where('judul',$film)->first();
-        $id_jtf = $jtf->where('id_studio', $studio)->where('id_film', $id_film)->where('jam', $jam)->first();
         $filtered = $pesanan->where('id_jtf',$id_jtf);
 
 		return view('kursibioskop')->with('pesanan', $filtered);
@@ -28,7 +22,7 @@ class KursiController extends Controller
 
 	public function addOrder(Request $request){
 
-    	$nama = $request->input('id_customer');
+    	//$nama = $request->input('id_customer');
     	$kursi = $request->input('id_kursi');
     	$jumlah_tiket = $request->input('jumlah_tiket');
     	$jtf = $request->input('id_jtf');

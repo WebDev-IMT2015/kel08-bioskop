@@ -269,7 +269,6 @@ var addClass = function(elem, className) {
     }
 };
 
-
 function ordt(obj,e){ 
   if(obj.className !=Ordered){
     addClass(e.target, "Selected");

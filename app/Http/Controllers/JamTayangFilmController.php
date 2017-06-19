@@ -8,27 +8,95 @@ use App\film;
 use App\Studio;
 use App\Jadwal;
 use App\Bioskop;
+use DB;
 
 class JamTayangFilmController extends Controller
 {
-    public function index($nama_bioskop){
-    	$jtf = Jam_Tayang_Film::all();
-      $bioskop = Bioskop::all();
-      $id_bioskop = $bioskop->where('nama',$nama_bioskop)->first();
-      //get based on bioskop
-      $tanggal = $jtf->where('id_bioskop',$id_bioskop);
-    	return view ('/pilihTanggal') ->with('jtf', $tanggal);
+    public function index(){
+    	//pass these tables to the view
+      
+      // $bioskop = DB::table('bioskops')->where('nama',$nama_bioskop)->get();
+      
+      // //$nama_bioskop = str_replace("_"," ", $nama_bioskop);
+      // //get based on bioskop
+      // $studio = DB::table('studios')->where('id_bioskop', '=', $bioskop->id_bioskop)->get();
+      // $jtf = Jam_Tayang_Film::all();
+
+      // foreach ($jtf as $loop) {
+      //   foreach ($studio as $loop2) {
+      //     if($loop->id_studio == $loop2->id_studio){
+      //       $tanggal = $loop;
+      //     }
+      //   }
+      // }
+      //$tanggal = $jtf->where('id_studio', $studio->id_studio);
+      // foreach ($tanggal as $loop) {
+      //   if($loop == ){
+      //     $unique == $loop
+      //   }
+      // }
+      // $unique = $tanggal->unique('tgl_tayang');
+
+      $id_bioskop=$_GET['id_bioskop'];
+      $studio = DB::table('studios')->where('id_bioskop', '=', $id_bioskop)->get();
+      $jtf = DB::table('jam_tayang_films')->get();
+      
+      foreach ($studio as $sf) {//filter by bioskop
+        foreach ($jtf as $times) {
+          if($sf->id_studio == $times->id_studio)
+            $stimes = $jtf;
+        }
+
+        //$jtf = DB::table('jam_tayang_films')->where('id_studio', '=', $sf->id_studio)->get();
+      }
+
+
+    	return view ('/pilih') ->with('tanggal', $jtf) ->with('id_bioskop',$id_bioskop);
     }
 
-    public function dateClick($date){
-	//filter jtf menurut tanggal
-   		//$mytime = Carbon\Carbon::now();
-      $jtf = Jam_Tayang_Film::all();
-   		$dayFiltered = $jtf->where('tgl_tayang', toDateTimeString());
-      $filmData = film::all();
+    public function dateClick(){
+      $date =  $_GET['date'];
+      $id_bioskop =  $_GET['id_bioskop'];
+      $jtf = DB::table('jam_tayang_films')
+      ->where('tgl_tayang', '=', $date)->get();//filter by date
+      $films = DB::table('films')->get();
+      //$filmData = DB::table('films')->where('id_film', '=', $times->id_film)->get();
+      
+      $studio = DB::table('studios')->where('id_bioskop', $id_bioskop)->get();
 
-   		return view ('pilihTanggal') ->with('dayFiltered', $dayFiltered)->with('filmData',$filmData);
-   		
+      foreach ($jtf as $times) {//filter by bioskop
+        foreach ($studio as $st) {
+          if($st->id_studio == $times->id_studio)
+            $sfil =  $times;
+        }
+      }
+
+      if(isset($sfil)){
+        foreach ($sfil as $times) {//filter film data using filtered showtimes
+          foreach ($films as $lf) {
+            if($lf->id_film ==  $times->id_film)
+              $filmData = $lf;
+          }  
+        }
+      }else{
+        foreach ($jtf as $times) {//filter film data using unffiltered showtimes
+          foreach ($films as $lf) {
+            if($lf->id_film ==  $times->id_film)
+              $filmData = $lf;
+          }  
+        }
+
+        return view ('pilih') 
+      ->with('times', $times)
+      ->with('filmData',$filmData)
+      ->with('date', $date);
+      }
+
+
+   		return view ('pilih') 
+      ->with('times', $sfil)
+      ->with('filmData',$filmData)
+      ->with('date', $date);
 	}
 
     public function tampil(){
