@@ -36,6 +36,10 @@
       }
       .row.content {height: auto;} 
     }
+    h2
+    {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -78,7 +82,7 @@
     <div>
       <div>
         <div class="panel panel-default">
-          <div class="panel-heading">Bioskop</div>
+          <div class="panel-heading"><h2>Bioskop</h2></div>
 
 {{-- Tambah bioskop --}}
 

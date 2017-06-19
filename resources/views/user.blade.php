@@ -36,6 +36,10 @@
       }
       .row.content {height: auto;} 
     }
+    h2
+    {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -79,7 +83,7 @@
       <div>
         <div class="panel panel-default">
           <div class="panel-heading">
-          Users
+          <h2>Users</h2>
         </div>
 
         {{-- Tambah User --}}
