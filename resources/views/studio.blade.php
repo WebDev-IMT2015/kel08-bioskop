@@ -23,8 +23,7 @@
 							<form class="form-horizontal" role="form" method="POST"">
 						@endif
 							{{ csrf_field() }}
-							@if(!isset($studio_edit))
-								<div class="form-group">
+							<div class="form-group">
 								<label for="bioskop" class="col-md-4 control-label">Bioskop</label>
 
 								<div class="col-md-6">
@@ -39,7 +38,6 @@
 									</select>
 								</div>
 							</div>
-							@endif
 							<div class="form-group">
 								<label for="jenis" class="col-md-4 control-label">Jenis Studio</label>
 

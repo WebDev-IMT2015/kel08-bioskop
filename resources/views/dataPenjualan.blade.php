@@ -43,11 +43,17 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">Cinema XXI</a>
+      <a href="{{ url('/home') }}" class="navbar-brand">Cinema XXI</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+            </form>
+        </li>
       </ul>
     </div>
   </div>
@@ -61,7 +67,7 @@
         <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
         <li><a href="{{ url('/studio')}}">Studio</a></li>
         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
-        <li><a href="#section3">Jam Tayang</a></li>
+        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
         <li class="active"><a>Laporan Penjaualan</a></li>
         <li><a href="{{ url('/user') }}">Users</a></li>
       </ul><br>
@@ -75,37 +81,37 @@
           <tr class="active">
             <th>No</th>
             <th>Tanggal</th>
-            <th>Pelanggan</th>
+            <th>Bioskop</th>
+            <th>Studio</th>
             <th>Film</th>
             <th>Jumlah Ticket</th>
             <th>Total Harga</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <th>10-10-2017</th>
-            <th>Calvin</th>
-            <th>Pirate of Carribean</th>
-            <th>1</th>
-            <th>50000</th>
-          </tr>
-          <tr>
-            <th>2</th>
-            <th>10-10-2017</th>
-            <th>Calvin</th>
-            <th>Pirate of Carribean</th>
-            <th>1</th>
-            <th>50000</th>
-          </tr>
-          <tr>
-            <th>3</th>
-            <th>10-10-2017</th>
-            <th>Calvin</th>
-            <th>Pirate of Carribean</th>
-            <th>1</th>
-            <th>50000</th>
-          </tr>
+          @foreach($pesanan as $psn)
+            @foreach($jam as $jm)
+              @foreach($bioskop as $bio)
+                @foreach($studio as $stu)
+                  @foreach($film as $fil)
+
+                    @if($psn->id_jtf == $jm->id_jtf && $jm->id_studio == $stu->id_studio && $stu->id_bioskop == $bio->id_bioskop && $fil->id_film == $jm->id_film)
+                      <tr>
+                        <th>{{ $psn->id_order }}</th>
+                        <th>{{ $psn->tlg_pesan }}</th>
+                        <th>{{ $bio->nama }}</th>
+                        <th>{{ $stu->jenis }}</th>
+                        <th>{{ $fil->judul }}</th>
+                        <th>{{ $psn->jumlah_tiket }}</th>
+                        <th>Rp. {{ (int) $psn->jumlah_tiket*(int)$jm->harga }}</th>
+                      </tr>
+                    @endif
+
+                  @endforeach
+                @endforeach
+              @endforeach
+            @endforeach
+          @endforeach
         </tbody>
       </table>
       </div>
