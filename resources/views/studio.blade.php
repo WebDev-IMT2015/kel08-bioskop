@@ -82,6 +82,10 @@
             <h1>Studio</h1>
           </div>
 
+          @if(Route::has('login'))
+                @if(Auth::check())
+                    @if(Auth::user()->type == "admin")
+
           {{-- Tambah Studio --}}
           <div class="panel-body">
             @if(isset($studio_edit))
@@ -180,6 +184,20 @@
               </table>
             </div>
           </div>
+
+          @else
+          <script>
+              window.location.href = '{{ url('/home') }}';
+            </script>
+
+          @endif
+            @else
+          <script>
+              window.location.href = '{{ url('/') }}';
+            </script>
+        @endif
+
+    @endif
 
         </div>
       </div>

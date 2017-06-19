@@ -73,6 +73,9 @@
       </ul><br>
     </div>
 
+@if(Route::has('login'))
+                @if(Auth::check())
+                    @if(Auth::user()->type == "admin")
     <div class="col-sm-9">
       <h2>Data Penjualan Bulan ini</h2>
       <div>           
@@ -85,7 +88,6 @@
             <th>Studio</th>
             <th>Film</th>
             <th>Jumlah Ticket</th>
-            <th>Harga tiket</th>
             <th>Total Harga</th>
           </tr>
         </thead>
@@ -104,7 +106,6 @@
                         <th>{{ $stu->jenis }}</th>
                         <th>{{ $fil->judul }}</th>
                         <th>{{ $psn->jumlah_tiket }}</th>
-                        <th>Rp. {{ (int)$jm->harga }}</th>
                         <th>Rp. {{ (int) $psn->jumlah_tiket*(int)$jm->harga }}</th>
                       </tr>
                     @endif
@@ -118,6 +119,20 @@
       </table>
       </div>
     </div>
+
+    @else
+          <script>
+              window.location.href = '{{ url('/home') }}';
+            </script>
+
+          @endif
+            @else
+          <script>
+              window.location.href = '{{ url('/') }}';
+            </script>
+        @endif
+
+    @endif
   </div>
 </div>
 <!-- 

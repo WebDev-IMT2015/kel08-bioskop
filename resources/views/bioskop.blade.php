@@ -84,6 +84,10 @@
         <div class="panel panel-default">
           <div class="panel-heading"><h2>Bioskop</h2></div>
 
+
+@if(Route::has('login'))
+                @if(Auth::check())
+                    @if(Auth::user()->type == "admin")
 {{-- Tambah bioskop --}}
 
           <!-- <div class="panel-heading">Tambah Bioskop</div> -->
@@ -164,6 +168,20 @@
               </table>
             </div>
           </div>
+
+          @else
+          <script>
+              window.location.href = '{{ url('/home') }}';
+            </script>
+
+          @endif
+            @else
+          <script>
+              window.location.href = '{{ url('/') }}';
+            </script>
+        @endif
+
+    @endif
 
         </div>
       </div>
