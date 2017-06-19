@@ -38,20 +38,19 @@ class JamTayangFilmController extends Controller
       // $unique = $tanggal->unique('tgl_tayang');
 
       $id_bioskop=$_GET['id_bioskop'];
-      $studio = DB::table('studios')->where('id_bioskop', '=', $id_bioskop)->get();
+      $studio = Studio::all();
       $jtf = DB::table('jam_tayang_films')->get();
       
-      foreach ($studio as $sf) {//filter by bioskop
-        foreach ($jtf as $times) {
-          if($sf->id_studio == $times->id_studio)
-            $stimes = $jtf;
-        }
+      // foreach ($studio as $sf) {//filter by bioskop
+      //   foreach ($jtf as $times) {
+      //     if($sf->id_studio == $times->id_studio)
+      //       $stimes = $jtf;
+      //   }
+      //   //$jtf = DB::table('jam_tayang_films')->where('id_studio', '=', $sf->id_studio)->get();
+      // }
 
-        //$jtf = DB::table('jam_tayang_films')->where('id_studio', '=', $sf->id_studio)->get();
-      }
 
-
-    	return view ('/pilih') ->with('tanggal', $jtf) ->with('id_bioskop',$id_bioskop);
+    	return view ('/pilih') ->with('jtf', $jtf) ->with('studios',$studio)->with('id_bioskop',$id_bioskop);
     }
 
     public function dateClick(){
@@ -64,38 +63,17 @@ class JamTayangFilmController extends Controller
       
       $studio = DB::table('studios')->where('id_bioskop', $id_bioskop)->get();
 
-      foreach ($jtf as $times) {//filter by bioskop
-        foreach ($studio as $st) {
-          if($st->id_studio == $times->id_studio)
-            $sfil =  $times;
-        }
-      }
-
-      if(isset($sfil)){
-        foreach ($sfil as $times) {//filter film data using filtered showtimes
-          foreach ($films as $lf) {
-            if($lf->id_film ==  $times->id_film)
-              $filmData = $lf;
-          }  
-        }
-      }else{
-        foreach ($jtf as $times) {//filter film data using unffiltered showtimes
-          foreach ($films as $lf) {
-            if($lf->id_film ==  $times->id_film)
-              $filmData = $lf;
-          }  
-        }
-
-        return view ('pilih') 
-      ->with('times', $times)
-      ->with('filmData',$filmData)
-      ->with('date', $date);
-      }
-
+      // foreach ($jtf as $times) {//filter by bioskop
+      //   foreach ($studio as $st) {
+      //     if($st->id_studio == $times->id_studio)
+      //       $sfil =  $times;
+      //   }
+      // }
 
    		return view ('pilih') 
-      ->with('times', $sfil)
-      ->with('filmData',$filmData)
+      ->with('times', $jtf)   //date filtered
+      ->with('film',$films)
+      ->with('studio', $studio) //bioskop filtered
       ->with('date', $date);
 	}
 

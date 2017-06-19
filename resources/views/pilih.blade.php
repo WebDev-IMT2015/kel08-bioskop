@@ -8,7 +8,7 @@
 <!-- probably not needed -->
   <button href= "{{ url()->previous() }}"> Back </button>
 
-	<table id='tabelBioskop'  border='1'>
+	<table id='tabelBioskop' border='1'>
 	@if(isset($bioskop))
 		@foreach($bioskop as $places)
 			<tr>
@@ -22,8 +22,22 @@
 	</table>
 
 	<table id='tabelTanggal'  border='1'>
-	@if(isset($tanggal))
-		@foreach($tanggal as $dates)
+	@if(isset($jtf))
+		{{-- studios, jtf, id_bioskop --}}
+		<?php
+			$bStudios = $studios->where('id_bioskop', $id_bioskop);
+			?>
+			@foreach ($bStudios as $loop) 
+				@foreach ($jtf as $loop2)
+					@if($loop2->id_studio == $loop->id_studio)
+						$ftimes = $jtf
+					@endif
+				@endforeach
+			@endforeach
+			<?php
+			$ufTimes = $ftimes->unique('tgl_tayang');
+		?>
+		@foreach($ufTimes as $dates)
 			<tr>
 				<td>
 					<a href="{{ url('/pilihjam') }}
@@ -37,15 +51,27 @@
 	</table>
 
 	<table id='tabelJam'  border='1'>
-	@if(isset($films) & isset($jtf))
-		@foreach($films as $film)
+	@if(isset($times))
+		{{-- times,film,studio,date --}}
+		<?php
+			$unique = $times->unique('id_studio', 'id_film');
+		?>
+		@foreach($unique as $films)
+			<?php
+				$filmNames = $film->where('id_film', $films->id_film)->first();
+				$studioNum = $studio->where('id_studio', $films->id_studio)->first();
+			?>
 			<tr>
 				<td>
-					{{ $film->judul }} Studio {{ $fi->id_studio }}
+					{{ $filmNames->judul }} Studio {{ $studioNum->id_studio }}
 				</td>
-
-				@foreach($jtf as $times)
-					@if($times->id_film == $film->id_film)
+				<?php
+					$showtimes = $times
+						->where('id_studio', $films->id_studio)
+		    			->where('id_film', $films->id_film);//real magic
+				?>
+				@foreach($showtimes as $times)
+					@if($times->id_film == $films->id_film)
 						<td>
 							<a href="{{ url('/kursibioskop') }}
 							?id_jtf={{ $times->id_jtf }}">
