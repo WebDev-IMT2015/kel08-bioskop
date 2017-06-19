@@ -26,16 +26,15 @@
 		{{-- studios, jtf, id_bioskop --}}
 		<?php
 			$bStudios = $studios->where('id_bioskop', $id_bioskop);
-			?>
-			@foreach ($bStudios as $loop) 
-				@foreach ($jtf as $loop2)
-					@if($loop2->id_studio == $loop->id_studio)
-						$ftimes = $jtf
-					@endif
-				@endforeach
-			@endforeach
-			<?php
+			foreach ($bStudios as $loop) 
+				foreach ($jtf as $loop2)
+					if($loop2->id_studio == $loop->id_studio)
+						$ftimes = $jtf;
 			$ufTimes = $ftimes->unique('tgl_tayang');
+			echo "$jtf";
+			echo "--------------";
+			echo "$bStudios";
+			echo "$ufTimes";
 		?>
 		@foreach($ufTimes as $dates)
 			<tr>
@@ -69,7 +68,10 @@
 					$showtimes = $times
 						->where('id_studio', $films->id_studio)
 		    			->where('id_film', $films->id_film);//real magic
+		    			echo "$showtimes";
 				?>
+				@if(!$showtimes->isEmpty() )
+				{{ $showtimes }}
 				@foreach($showtimes as $times)
 					@if($times->id_film == $films->id_film)
 						<td>
@@ -80,7 +82,7 @@
 						</td>
 					@endif
 				@endforeach
-
+				@endif
 			</tr>
 		@endforeach
 	@endif
