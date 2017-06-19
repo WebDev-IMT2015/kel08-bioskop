@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class BioskopTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('bioskop')->insert([
             'name' => str_random(10),
-            'email' => str_random(10).'@gmail.com',
-            'password' => bcrypt('secret'),
-            'type' => 'admin',
+            'lokasi' => str_random(10),
+            'status' => '1',
         ]);
     }
 }
