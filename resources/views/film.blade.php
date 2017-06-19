@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Cinema XXI</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -68,7 +68,7 @@
         <li><a href="{{ url('/studio')}}">Studio</a></li>
         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
-        <li><a href="{{ url('/datapenjualan')}}">Laporan Penjaualan</a></li>
+        <li><a href="{{ url('/datapenjualan')}}">Laporan Penjualan</a></li>
         <li><a href="{{ url('/user') }}">Users</a></li>
       </ul><br>
     </div>

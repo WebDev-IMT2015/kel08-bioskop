@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Cinema XXI</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,13 +63,23 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-                                <li><a href="{{ url('/film')}}">Film</a></li>
-                                <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
-                                <li><a href="{{ url('/studio')}}">Studio</a></li>
-                                <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
-                                <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
-                                <li><a href="{{ url('/datapenjualan')}}">Laporan Penjaualan</a></li>
-                                <li><a href="{{ url('/user') }}">Users</a></li>
+        @if(Route::has('login'))
+                    @if(Auth::check())
+                        @if(Auth::user()->type == "admin")
+                        <li><a href="{{ url('/film')}}">Film</a></li>
+                        <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
+                        <li><a href="{{ url('/studio')}}">Studio</a></li>
+                        <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
+                        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                        <li><a href="{{ url('/datapenjualan')}}">Laporan Penjualan</a></li>
+                        <li><a href="{{ url('/user') }}">Users</a></li>
+                        @else
+                        <li><a href="{{ url('/pilihbioskop') }}">Pesan Tiket</a></li>
+                        <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
+                        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                        @endif
+                    @endif
+                @endif
       </ul><br>
     </div>
 
@@ -79,6 +89,11 @@
       <div>
         <div class="panel panel-default" align="center">
           <div class="panel-heading" id="main"><h1>Jadwal</h1></div>
+
+
+          @if(Route::has('login'))
+                @if(Auth::check())
+                    @if(Auth::user()->type == "admin")
 
           <!-- Tambah Jadwal -->
           <div class="panel-body">
@@ -204,6 +219,55 @@
               </table>
             </div>
           </div>
+
+          @else
+
+          <!-- Tabel daftar Jadwal -->
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                              <th style = "text-align: center;">Id</th>
+                              <th style = "text-align: center;">Bioskop</th>
+                              <th style = "text-align: center;">Jenis Studio</th>
+                              <th style = "text-align: center;">Film</th>
+                              <th style = "text-align: center;">Tanggal Tayang</th>
+                              <th style = "text-align: center;">Tanggal Berhenti</th>
+                          </tr>
+                </thead>
+                <tbody>
+                  @foreach($jadwal as $jwl)
+                    @foreach($bioskop as $bskp)
+                      @foreach($studio as $std)
+                        @foreach($film as $flm)
+                          @if($jwl->status == 1 && $jwl->id_studio == $std->id_studio && $std->id_bioskop == $bskp->id_bioskop && $jwl->id_film == $flm->id_film)
+                            <tr>
+                                        <th style = "text-align: center;">{{ $jwl->id_jadwal}}</th>
+                                        <th style = "text-align: center;">{{ $bskp->nama }}</th>
+                                        <th style = "text-align: center;">{{ $std->jenis }}</th>
+                                        <th style = "text-align: center;">{{ $flm->judul }}</th>
+                                        <th style = "text-align: center;">{{ $jwl->tgl_tayang }}</th>
+                                        <th style = "text-align: center;">{{ $jwl->tgl_berhenti }}</th>
+                                      </tr>
+                          @endif
+                        @endforeach
+                      @endforeach
+                    @endforeach
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          @endif
+          @else
+          <script>
+              window.location.href = '{{ url('/') }}';
+            </script>
+        @endif
+
+    @endif
 
         </div>
       </div>
