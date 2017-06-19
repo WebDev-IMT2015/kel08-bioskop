@@ -69,13 +69,13 @@
   <div class="row content">
     <div class="col-sm-3 sidenav">
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="{{ url('/film')}}">Film</a></li>
-        <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
-        <li><a href="{{ url('/studio')}}">Studio</a></li>
-        <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
-        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
-        <li><a href="{{ url('/datapenjualan')}}">Laporan Penjaualan</a></li>
-        <li><a href="{{ url('/user') }}">Users</a></li>
+                                <li><a href="{{ url('/film')}}">Film</a></li>
+                                <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
+                                <li><a href="{{ url('/studio')}}">Studio</a></li>
+                                <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
+                                <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                                <li><a href="{{ url('/datapenjualan')}}">Laporan Penjaualan</a></li>
+                                <li><a href="{{ url('/user') }}">Users</a></li>
       </ul><br>
     </div>
 
