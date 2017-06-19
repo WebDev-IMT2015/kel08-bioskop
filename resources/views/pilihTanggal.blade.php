@@ -8,8 +8,20 @@
 
   <button href= "{{ url()->previous() }}"> Back </button>
 
-  	<?php
-	  	$unique = $jtf->unique('tgl_tayang');
+  	<table id='tabelTanggal'  border='1'>
+	@foreach($jtf as $dates)
+		<tr>
+			<td>
+				<a href="{{ url('/pilihjam') }}?date={{ $dates->tgl_tayang }}"> {{ $dates->tgl_tayang }} </a>
+			</td>
+
+			
+		</tr>
+	@endforeach
+	</table>
+
+  	{{-- <?php
+	  	
 		echo "<table id='tabelKursi'  onclick='routeMe(event)' border='1'>";
 
    		foreach ($unique as $films) {
@@ -17,12 +29,12 @@
 		}
 
 		echo "</table>";
-	?>
+	?> --}}
 
 	<script type="text/javascript">
-		function routeMe(e){
-		    document.location.href="/pilihjam/"+e.target.innerHTML;
-		}
+		// function routeMe(e){
+		//     document.location.href="/pilihjam/"+e.target.innerHTML;
+		// }
 
 	</script>
 
