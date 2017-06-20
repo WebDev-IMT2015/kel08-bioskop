@@ -95,6 +95,8 @@
               <form class="form-horizontal" role="form" method="POST"">
             @endif
               {{ csrf_field() }}
+
+              @if(!isset($studio_edit))
               <div class="form-group">
                 <label for="bioskop" class="col-md-4 control-label">Bioskop</label>
 
@@ -110,6 +112,8 @@
                   </select>
                 </div>
               </div>
+              @endif
+
               <div class="form-group">
                 <label for="jenis" class="col-md-4 control-label">Jenis Studio</label>
 
@@ -121,14 +125,14 @@
                 </div>
               </div>
 
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <label for="Jumlah" class="col-md-4 control-label ">Jumlah Kursi</label>
 
                 <div class="col-md-6">
                   <input type="number" name="jumlah_kursi" id="jumlah"
                   @if(isset($studio_edit)) value="{{ $studio_edit->jumlah_kursi }}" @endif>
                 </div>
-              </div>
+              </div> --}}
 
               <div class="form-group">
                 <div class="col-md-6 col-md-offset-4">

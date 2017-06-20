@@ -136,7 +136,7 @@ class JamTayangFilmController extends Controller
 
     public function update(Request $request){
         $id = $request->input('jadwal');
-        $jam_tayang = new Jam_Tayang_Film;
+        $jam_tayang = Jam_Tayang_Film::find($request->input('id_jtf'));
         $jam_tayang->id_jadwal = $id[0];
         $jam_tayang->id_studio = $id[1];
         $jam_tayang->id_film = $id[2];

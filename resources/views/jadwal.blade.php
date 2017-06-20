@@ -69,13 +69,13 @@
                         <li><a href="{{ url('/film')}}">Film</a></li>
                         <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
                         <li><a href="{{ url('/studio')}}">Studio</a></li>
-                        <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
+                        <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
                         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
                         <li><a href="{{ url('/datapenjualan')}}">Laporan Penjualan</a></li>
                         <li><a href="{{ url('/user') }}">Users</a></li>
                         @else
                         <li><a href="{{ url('/pilihbioskop') }}">Pesan Tiket</a></li>
-                        <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
+                        <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
                         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
                         @endif
                     @endif
@@ -146,7 +146,7 @@
                 <label for="tgl_tayang" class="col-md-4 control-label">Tanggal Tayang</label>
 
                 <div class="col-md-6">
-                  <input type="date" name="tgl_tayang" min="2017-06-20">
+                  <input type="date" name="tgl_tayang" min="2017-06-20" @if(isset($jadwal_edit)) value='{{$jadwal_edit->tgl_tayang}}' @endif)>
                 </div>
               </div>
 
@@ -154,7 +154,7 @@
                 <label for="tgl_berhenti" class="col-md-4 control-label">Tanggal Berhenti Tayang</label>
 
                 <div class="col-md-6">
-                  <input type="date" name="tgl_berhenti" min="2017-06-20">
+                  <input type="date" name="tgl_berhenti" min="2017-06-20" @if(isset($jadwal_edit)) value='{{$jadwal_edit->tgl_berhenti}}' @endif>
                 </div>
               </div>
 

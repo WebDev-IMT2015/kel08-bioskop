@@ -70,13 +70,13 @@
                         <li><a href="{{ url('/bioskop')}}">Bioskop</a></li>
                         <li><a href="{{ url('/studio')}}">Studio</a></li>
                         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
-                        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                        <li class="active"><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
                         <li><a href="{{ url('/datapenjualan')}}">Laporan Penjualan</a></li>
                         <li><a href="{{ url('/user') }}">Users</a></li>
                         @else
                         <li><a href="{{ url('/pilihbioskop') }}">Pesan Tiket</a></li>
                         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
-                        <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                        <li class="active"><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
                         @endif
                     @endif
                 @endif
@@ -97,12 +97,14 @@
           <div class="panel-body">
             @if(isset($jam_tayang_edit))
               <form action="{{ route('jamtayang.update') }}" method="POST">
-              <input type="hidden" name="id_jadwal" value="{{ $jam_tayang_edit->id_jtf }}">
+              <input type="hidden" name="id_jtf" value="{{ $jam_tayang_edit->id_jtf }}">
+              <input type="hidden" name="jadwal" value="{{ $jam_tayang_edit->id_jadwal }}{{$jam_tayang_edit->id_studio}}{{$jam_tayang_edit->id_film}}">
             @else
               <form method="POST" class="form-horizontal" role="form">
             @endif
             {{ csrf_field() }}
 
+            @if(!isset($jam_tayang_edit))
             <div class="form-group">
               <label for="id_jadwal" class="col-md-4 control-label">Jadwal Film</label>
 
@@ -138,6 +140,7 @@
                 </select>
               </div>    
             </div>
+            @endif
 
             <div class="form-group">
               <label for="harga" class="col-md-4 control-label">Harga Tiket</label>

@@ -21,7 +21,7 @@ class StudioController extends Controller
     	$studio = new Studio;
     	$studio->id_bioskop = $request->input('id_bioskop');
     	$studio->jenis = $request->input('jenis');
-    	$studio->jumlah_kursi = $request->input('jumlah_kursi');
+    	$studio->jumlah_kursi = 63;
     	$studio->status = 1;
     	$studio->save();
 
@@ -42,7 +42,7 @@ class StudioController extends Controller
         $id_studio = $request->input('id_studio');
         $studio = Studio::find($id_studio);
     	$studio->jenis = $request->input('jenis');
-    	$studio->jumlah_kursi = $request->input('jumlah_kursi');
+    	$studio->jumlah_kursi = 63;
         $studio->save();
 
         return redirect('studio');
