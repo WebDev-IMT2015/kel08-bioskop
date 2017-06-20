@@ -6,7 +6,6 @@
   </head>
   <body>
 <!-- probably not needed -->
-  <button href= "{{ url()->previous() }}"> Back </button>
 
 	<table id='tabelBioskop' border='1'>
 	@if(isset($bioskop))

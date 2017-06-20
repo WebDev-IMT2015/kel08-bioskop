@@ -118,5 +118,24 @@ class JamTayangTableSeeder extends Seeder
             'jam' => '16.00',
             'tgl_tayang' => '2017-06-20',
         ]);
+
+        DB::table('jam_tayang_films')->insert([
+            'id_jadwal' => 1,
+            'id_studio' => 5,
+            'id_film' => 1,
+            'harga' => 22000,
+            'jam' => '12.00',
+            'tgl_tayang' => '2017-06-20',
+        ]);
+
+        DB::table('jam_tayang_films')->insert([
+            'id_jadwal' => 3,
+            'id_studio' => 1,
+            'id_film' => 3,
+            'harga' => 35000,
+            'jam' => '15.00',
+            'tgl_tayang' => '2017-06-20',
+        ]);
+
     }
 }
