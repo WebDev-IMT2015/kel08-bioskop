@@ -33,7 +33,10 @@ class KursiController extends Controller
     	$pesanan->tgl_pesan = timestamp('added_on');
     	$pesanan->save();
 
-		return view('BioskopController@index');
+        $newP = Pesanan::all();
+        $id_order = $newP->last();
+
+		return view('kursibioskop')->with('pesanan', $filtered)->with('id_order', $id_order);
     }
 
 }

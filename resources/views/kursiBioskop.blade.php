@@ -246,8 +246,15 @@
           </tr>
         </table> -->
     </div>
-
+    {{ csrf_field() }}
     <button onclick="addOrder()">Order</button>
+
+    @if(isset($id_order))
+      <form method="get" action="{{ route('printTicket') }}">
+        <input type="hidden" name="id" value="{{ $id_order->id_order }}">
+        <button type="submit">Print Ticket</button>
+      </form>
+    @endif
 
     <!-- The Modal -->
 {{-- <div id="myModal" class="modal"> --}}
@@ -294,7 +301,9 @@ function addOrder(){
   if(x.length>0){
     if(window.confirm("Are you sure you want to \n order seat number(s) "+kursi+" ?")){
       var idjtf = {!! json_encode($id_jtf) !!};
-      post('addOrder', {'id_jtf': idjtf, 'jumlah_tiket' : x.length , 'id_kursi': kursi});
+      var _token =  Laravel.csrfToken;
+      post('addOrder', {'_token' : _token ,'id_jtf': idjtf,
+       'jumlah_tiket' : x.length , 'id_kursi': kursi});
       window.alert("Successfully ordered seat number(s) "+kursi);
     }else{
       //cancelled
