@@ -247,6 +247,7 @@
         </table> -->
     </div>
     {{ csrf_field() }}
+    <meta id="csrf" name="_token" content="{{ csrf_token() }}">
     <button onclick="addOrder()">Order</button>
 
     @if(isset($id_order))
@@ -301,7 +302,7 @@ function addOrder(){
   if(x.length>0){
     if(window.confirm("Are you sure you want to \n order seat number(s) "+kursi+" ?")){
       var idjtf = {!! json_encode($id_jtf) !!};
-      var _token =  Laravel.csrfToken;
+      var _token =  document.getElementById("csrf").getAttribute("content"); ;
       post('addOrder', {'_token' : _token ,'id_jtf': idjtf,
        'jumlah_tiket' : x.length , 'id_kursi': kursi});
       window.alert("Successfully ordered seat number(s) "+kursi);

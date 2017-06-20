@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pesanan;
 use App\Jam_Tayang_Film;
 use App\film;
+use Carbon\Carbon;
 
 class KursiController extends Controller
 {
@@ -30,7 +31,7 @@ class KursiController extends Controller
     	$pesanan->id_jtf = $jtf;
     	$pesanan->id_kursi = $kursi;
     	$pesanan->jumlah_tiket = $jumlah_tiket;
-    	$pesanan->tgl_pesan = timestamp('added_on');
+    	$pesanan->tgl_pesan = Carbon::now()->toDayDateTimeString();
     	$pesanan->save();
 
         $newP = Pesanan::all();
