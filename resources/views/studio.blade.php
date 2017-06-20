@@ -68,7 +68,7 @@
         <li class="active"><a href="{{ url('/studio')}}">Studio</a></li>
         <li><a href="{{ url('/jadwal')}}">Jadwal</a></li>
         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
-        <li><a href="{{ url('/datapenjualan')}}">Laporan Penjualan</a></li>
+        <li><a href="{{ url('/dataPenjualan')}}">Laporan Penjualan</a></li>
         <li><a href="{{ url('/user') }}">Users</a></li>
       </ul><br>
     </div>
