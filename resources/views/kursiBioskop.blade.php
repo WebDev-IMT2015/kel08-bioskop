@@ -94,6 +94,7 @@
   <button href= '/pilihbioskop'> Back </button>
 
     <h2>Tampilan Kursi Bioskop</h2>
+
     <div class="center">
       <?php
         echo "<table id='tabelKursi'  onclick='ordt(this,event)'>";
@@ -125,18 +126,22 @@
               $f = false;
               $col = $j+1;//dont want no trouble
               $id = $alphabet[$i].''.$col;
-              foreach ($pesanan as $checks) {
+              if (isset($pesanan)) {
+                foreach ($pesanan as $checks) {
                   if(strpos($id, $checks->id_kursi)){
                     $f=true;
                   }
-              }
+                }
 
-              if($f){
-                echo "<td id=".$id." class='Ordered'> </td>";
+                if($f){
+                  echo "<td id=".$id." class='Ordered'> </td>";
+                }
+                else{
+                  echo "<td id=".$id."> </td>";
+                }
               }
-              else{
+              else
                 echo "<td id=".$id."> </td>";
-              }
             }
             echo "</tr>";
           }
@@ -301,7 +306,7 @@ function addOrder(){
 
   if(x.length>0){
     if(window.confirm("Are you sure you want to \n order seat number(s) "+kursi+" ?")){
-      var idjtf = {!! json_encode($id_jtf) !!};
+      
       var _token =  document.getElementById("csrf").getAttribute("content"); ;
       post('addOrder', {'_token' : _token ,'id_jtf': idjtf,
        'jumlah_tiket' : x.length , 'id_kursi': kursi});

@@ -40,15 +40,16 @@ Route::get('/printTicket', function(){
 	return view('printTicket');
 });
 
-// Route::get('/kursibioskop', function (){
-// 	return view('kursiBioskop');
-// });
+Route::get('/kursibioskopmock', function (){
+	return view('kursiBioskop');
+});
 
 //cs side
 Route::get('/pilihbioskop', 'BioskopController@displayBioskop');
 Route::get('/pilihtanggal', 'JamTayangFilmController@index');
 Route::get('/pilihjam', 'JamTayangFilmController@dateClick');
 Route::get('/kursibioskop', 'KursiController@index');
+
 Route::POST('addOrder', 'KursiController@addOrder');
 
 Route::get('film', 'FilmController@index');
