@@ -37,7 +37,7 @@ class KursiController extends Controller
         $newP = Pesanan::all();
         $id_order = $newP->last();
 
-		return view('kursibioskop')->with('pesanan', $filtered)->with('id_order', $id_order);
+		return view('kursibioskop')->with('pesanan', $newP)->with('id_order', $id_order);
     }
 
 }
