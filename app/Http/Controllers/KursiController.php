@@ -31,7 +31,7 @@ class KursiController extends Controller
     	$pesanan->id_jtf = $jtf;
     	$pesanan->id_kursi = $kursi;
     	$pesanan->jumlah_tiket = $jumlah_tiket;
-    	$pesanan->tgl_pesan = Carbon::now()->toDayDateTimeString();
+    	$pesanan->tgl_pesan = Carbon::now();
     	$pesanan->save();
 
         $newP = Pesanan::all();

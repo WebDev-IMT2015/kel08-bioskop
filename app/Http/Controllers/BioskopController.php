@@ -17,9 +17,18 @@ class BioskopController extends Controller
     public function displayBioskop(){
         
         $bioskop = Bioskop::all();
-        $Studio = Studio::all();
-        $jtf = Jam_Tayang_Film::all();
+        // $Studio = Studio::all();
+        // $jtf = Jam_Tayang_Film::all();
 
+        // foreach ($bioskop as $b) {
+        //     foreach ($Studio as $s) {
+        //         foreach ($jtf as $j) {
+        //             if($j->id_studio == $s->id_studio && $s->id_bioskop == $b->id_bioskop)
+        //                 $fb = $b;
+        //         }
+        //     }
+        // }
+        // dd($fb);
         return view('pilih')->with('bioskop', $bioskop);
     }
 

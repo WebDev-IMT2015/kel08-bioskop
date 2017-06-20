@@ -54,12 +54,16 @@ class JamTayangFilmController extends Controller
           if($loop2->id_studio == $loop->id_studio){
             $ftimes = $loop2;
           }
-      if (sizeof($ftimes)>1) {
-        $ufTimes = $ftimes->unique('tgl_tayang');
-        return view ('/pilih') ->with('jtf', $ufTimes)->with('id_bioskop',$id_bioskop);
-      }
+      if(isset($ftimes)){
+        if (sizeof($ftimes)>1) {
+          $ufTimes = $ftimes->unique('tgl_tayang');
+          return view ('/pilih') ->with('jtf', $ufTimes)->with('id_bioskop',$id_bioskop);
+        }
 
-    	return view ('/pilih') ->with('jtf', $ftimes)->with('id_bioskop',$id_bioskop);
+      	return view ('/pilih') ->with('jtf', $ftimes)->with('id_bioskop',$id_bioskop);
+      }else{
+          redirect('BioskopController@index');  
+      }
     }
 
     public function dateClick(){
