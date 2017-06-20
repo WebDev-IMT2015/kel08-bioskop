@@ -12,16 +12,16 @@ use App\Film;
 class printController extends Controller
 {
     public function index(){
-    	$pesanan = Pesanan::all();
-    	$jam = Jam_Tayang_Film::all();
-    	$studio = Studio::all();
-        $bioskop = Bioskop::all();
-        $film = Film::all();
-        return view('printiket')
-        ->with('pesanan', $pesanan)
-        ->with('jam', $jam)
-        ->with('studio', $studio)
-        ->with('bioskop', $bioskop)
-        ->with('film', $film);
+    	$pesanan = Pesanan::find(1);
+    	$jam = Jam_Tayang_Film::find($pesanan->id_jtf);
+    	$studio = Studio::find($jam->id_studio);
+        $bioskop = Bioskop::find($studio->id_bioskop);
+        $film = Film::find($jam->id_film);
+        return view('printTicket')  
+        ->with('psn', $pesanan)
+        ->with('jm', $jam)
+        ->with('stu', $studio)
+        ->with('bio', $bioskop)
+        ->with('fil', $film);
     }
 }

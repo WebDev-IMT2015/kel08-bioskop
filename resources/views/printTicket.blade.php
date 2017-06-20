@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Cinema XXI</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -51,16 +51,17 @@
 </head>
 <body>
   
-<div class="container-fluid">    
+<div class="container-fluid" id="printableArea">    
   <div class="row content">
     <div class="col-sm-6"> 
       <h1 class=tit>{{ $bio->nama }}</h1>
       <hr>
-      <h2>{{ $fil->judul }}</h2>
-      <h3>Date : {{ $psn->tlg_pesan }}</h3>
-      <h3>Price : Rp. {{ $jm->harga }}</h3>
-      <h1 class=stup>{{ $stu->jenis }}</h1>
-      <button onclick="myFunction()">Print this page</button>
+      <h1>{{ $fil->judul }} - {{ $stu->jenis }}</h1>
+      <h3>Tanggal : {{ $psn->tlg_pesan }}</h3>
+      <h3>Jam : {{ $jm->jam }} AM</h3>
+      <br>
+      <p>{{ $bio->nama }} Cinema Surabaya</p>
+      <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
     </div>
   </div>
 </div>
@@ -68,8 +69,20 @@
 
 
 <script>
-function myFunction() {
-    window.print();
+function myFunction(divName) {
+    var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+    document.getElementById("print").style.display='block';
+}
+
+function hide() {
+  document.getElementById("print").style.display='none';
 }
 </script>
 
