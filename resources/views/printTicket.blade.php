@@ -39,7 +39,7 @@
       }
       .row.content {height:auto;} 
     }
-    h1.tit, h2
+    .tit, h2
     {
       text-align: center;
     }
@@ -47,6 +47,27 @@
     {
       text-align: right;
     }
+    th.line {
+    padding: 6px;
+    border-bottom: 1px solid #000000;
+    border-right: 2px dashed #dddddd;
+    }
+    th.side {
+    padding: 6px;
+    border-right: 2px dashed #dddddd;
+    }
+    th.bot {
+    padding: 6px;
+    border-bottom: 1px solid #000000;
+    }
+    th.last {
+    padding: 6px;
+    }
+    table
+    {
+      background-color: #fff989;
+    }
+    
   </style>
 </head>
 <body>
@@ -67,19 +88,31 @@
 </div> --}}
 
 
-<div class="container-fluid" id="printableArea">    
-  <div class="row content">
+<div class="container-fluid">    
+  <div class="row content"  id="printableArea">
     <div class="col-sm-4"> 
-      <h1 class=tit>ASD</h1>
-      <hr>
-      <h1>ASD</h1>
-      <h3>Tanggal : OK</h3>
-      <h3>Jam : 1:00 AM</h3>
-      <br>
-      <p>{{ $bio->nama }} Cinema Surabaya</p>
-      <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
+      <table>
+      <tr>
+       <th class="line"><h3 class=tit>{{ $bio->nama }}</h3></th>
+       <th class="bot"><h1 class=tit>{{ $bio->nama }}</h1></th>
+      </tr>
+      <tr>
+       <th class="side">
+         <h3>{{ $fil->judul }} - {{ $stu->jenis }}</h3>
+         <h3>Tanggal : {{ $psn->tlg_pesan }}</h3>
+       </th id="side">
+       <th class="last">
+         <h1>{{ $fil->judul }} - {{ $stu->jenis }}</h1>
+        <h3>Tanggal : {{ $psn->tlg_pesan }}</h3>
+        <h3>Jam : {{ $jm->jam }} AM</h3>
+        <br>
+        <p>{{ $bio->nama }} Cinema Surabaya</p>
+       </th>
+      </tr>
+      </table>
     </div>
   </div>
+  <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
 </div>
 
 
