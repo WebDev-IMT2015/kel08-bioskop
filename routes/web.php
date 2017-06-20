@@ -49,7 +49,7 @@ Route::get('/pilihbioskop', 'BioskopController@displayBioskop');
 Route::get('/pilihtanggal', 'JamTayangFilmController@index');
 Route::get('/pilihjam', 'JamTayangFilmController@dateClick');
 Route::get('/kursibioskop', 'KursiController@index');
-Route::POST('addOrder', 'KursiController@insertOrder');
+Route::POST('addOrder', 'KursiController@addOrder');
 
 Route::get('film', 'FilmController@index');
 Route::POST('film', 'FilmController@insertFilm');

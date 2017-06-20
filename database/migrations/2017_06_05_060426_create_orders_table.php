@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer('id_jtf')->unsigned();
             $table->foreign('id_jtf')->references('id_jtf')->on('jam_tayang_films');
             $table->integer('jumlah_tiket');
-            $table->date('tlg_pesan');
+            $table->date('tgl_pesan');
             $table->string('id_kursi');
             $table->timestamps();
         });

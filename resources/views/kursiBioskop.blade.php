@@ -126,7 +126,7 @@
               $col = $j+1;//dont want no trouble
               $id = $alphabet[$i].''.$col;
               foreach ($pesanan as $checks) {
-                  if($checks->id_kursi == $id){
+                  if(strpos($id, $checks->id_kursi)){
                     $f=true;
                   }
               }
@@ -268,7 +268,7 @@ var addClass = function(elem, className) {
     } else {
         elem.className = elem.className.replace(" " + className, "");    
     }
-};
+}
 
 function ordt(obj,e){ 
   if(obj.className != "Ordered"){
@@ -290,9 +290,11 @@ function addOrder(){
     }
   }
 
+
   if(x.length>0){
     if(window.confirm("Are you sure you want to \n order seat number(s) "+kursi+" ?")){
-      post('addOrder', {id_jtf: $id_jtf, jumlah_tiket : x.length ,id_kursi: kursi});
+      var idjtf = {!! json_encode($id_jtf) !!};
+      post('addOrder', {'id_jtf': idjtf, 'jumlah_tiket' : x.length , 'id_kursi': kursi});
       window.alert("Successfully ordered seat number(s) "+kursi);
     }else{
       //cancelled

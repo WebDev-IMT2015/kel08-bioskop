@@ -16,7 +16,7 @@ class KursiController extends Controller
 		$pesanan = Pesanan::all();
         $filtered = $pesanan->where('id_jtf',$id_jtf);
 
-		return view('kursibioskop')->with('pesanan', $filtered);
+		return view('kursibioskop')->with('pesanan', $filtered)->with('id_jtf', $id_jtf);
     }
 
 	public function addOrder(Request $request){
@@ -33,7 +33,7 @@ class KursiController extends Controller
     	$pesanan->tgl_pesan = timestamp('added_on');
     	$pesanan->save();
 
-		return redirect('');
+		return view('BioskopController@index');
     }
 
 }
