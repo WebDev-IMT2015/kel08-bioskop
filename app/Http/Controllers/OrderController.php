@@ -7,7 +7,7 @@ use App\Pesanan;
 use App\Jam_Tayang_Film;
 use App\Studio;
 use App\Bioskop;
-use App\Film;
+use App\film;
 
 class OrderController extends Controller
 {
