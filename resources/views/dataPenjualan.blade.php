@@ -93,12 +93,13 @@
           </tr>
         </thead>
         <tbody>
+        @if(isset($pesanan))
           @foreach($pesanan as $psn)
             @foreach($jam as $jm)
               @foreach($bioskop as $bio)
                 @foreach($studio as $stu)
                   @foreach($film as $fil)
-
+                  
                     @if($psn->id_jtf == $jm->id_jtf && $jm->id_studio == $stu->id_studio && $stu->id_bioskop == $bio->id_bioskop && $fil->id_film == $jm->id_film)
                       <tr>
                         <th>{{ $psn->id_order }}</th>
@@ -117,6 +118,7 @@
               @endforeach
             @endforeach
           @endforeach
+          @endif
         </tbody>
       </table>
       </div>

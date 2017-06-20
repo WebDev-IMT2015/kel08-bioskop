@@ -77,6 +77,7 @@
                         <li><a href="{{ url('/pilihbioskop') }}">Pesan Tiket</a></li>
                         <li class="active"><a href="{{ url('/jadwal')}}">Jadwal</a></li>
                         <li><a href="{{ url('/jamtayang')}}">Jam Tayang</a></li>
+                        <li><a href="{{ url('/printTicket')}}">Cetak Tiket</a></li>
                         @endif
                     @endif
                 @endif
