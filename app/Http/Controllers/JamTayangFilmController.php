@@ -38,7 +38,7 @@ class JamTayangFilmController extends Controller
       // $unique = $tanggal->unique('tgl_tayang');
 
       $id_bioskop=$_GET['id_bioskop'];
-      $studio = Studio::all();
+      $studio = DB::table('studios')->where('id_bioskop', $id_bioskop)->get();
       $jtf = DB::table('jam_tayang_films')->get();
       
       // foreach ($studio as $sf) {//filter by bioskop
@@ -49,20 +49,29 @@ class JamTayangFilmController extends Controller
       //   //$jtf = DB::table('jam_tayang_films')->where('id_studio', '=', $sf->id_studio)->get();
       // }
 
+      foreach ($studio as $loop) 
+        foreach ($jtf as $loop2)
+          if($loop2->id_studio == $loop->id_studio){
+            $ftimes = $loop2;
+          }
+      if (sizeof($ftimes)>1) {
+        $ufTimes = $ftimes->unique('tgl_tayang');
+        return view ('/pilih') ->with('jtf', $ufTimes)->with('id_bioskop',$id_bioskop);
+      }
 
-    	return view ('/pilih') ->with('jtf', $jtf) ->with('studios',$studio)->with('id_bioskop',$id_bioskop);
+    	return view ('/pilih') ->with('jtf', $ftimes)->with('id_bioskop',$id_bioskop);
     }
 
     public function dateClick(){
       $date =  $_GET['date'];
       $id_bioskop =  $_GET['id_bioskop'];
       $jtf = DB::table('jam_tayang_films')
-      ->where('tgl_tayang', '=', $date)->get();//filter by date
+        ->where('tgl_tayang', '=', $date)->get();//filter by date
       $films = DB::table('films')->get();
       //$filmData = DB::table('films')->where('id_film', '=', $times->id_film)->get();
       
       $studio = DB::table('studios')->where('id_bioskop', $id_bioskop)->get();
-
+      $unique = $jtf->unique('id_studio', 'id_film');
       // foreach ($jtf as $times) {//filter by bioskop
       //   foreach ($studio as $st) {
       //     if($st->id_studio == $times->id_studio)
@@ -74,7 +83,8 @@ class JamTayangFilmController extends Controller
       ->with('times', $jtf)   //date filtered
       ->with('film',$films)
       ->with('studio', $studio) //bioskop filtered
-      ->with('date', $date);
+      ->with('date', $date)
+      ->with('unique', $unique);
 	}
 
     public function tampil(){

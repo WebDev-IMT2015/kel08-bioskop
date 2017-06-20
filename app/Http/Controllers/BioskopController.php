@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Bioskop;
+use App\Studio;
+use App\Jam_Tayang_Film;
 
 class BioskopController extends Controller
 {
@@ -13,7 +15,11 @@ class BioskopController extends Controller
     }
 
     public function displayBioskop(){
+        
         $bioskop = Bioskop::all();
+        $Studio = Studio::all();
+        $jtf = Jam_Tayang_Film::all();
+
         return view('pilih')->with('bioskop', $bioskop);
     }
 

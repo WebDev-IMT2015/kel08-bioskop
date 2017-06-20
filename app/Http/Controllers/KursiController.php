@@ -12,7 +12,6 @@ class KursiController extends Controller
 
 	public function index(){
 
-
         $id_jtf = $_GET['id_jtf'];
 		$pesanan = Pesanan::all();
         $filtered = $pesanan->where('id_jtf',$id_jtf);

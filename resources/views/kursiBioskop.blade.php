@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Kursi Bioskop</title>
     <style>
       body {background-color: white;}
       h2 
@@ -113,7 +114,7 @@
           $alphabet = range('A', 'Z');
 
           for ($i=0; $i < 7; $i++) { 
-            echo "<tr> <th>".$alphabet[i]."</th>";
+            echo "<tr> <th>".$alphabet[$i]."</th>";
 
             for ($j=0; $j < 9; $j++) { 
 
@@ -123,7 +124,7 @@
 
               $f = false;
               $col = $j+1;//dont want no trouble
-              $id = $alphabet[i].''.$col;
+              $id = $alphabet[$i].''.$col;
               foreach ($pesanan as $checks) {
                   if($checks->id_kursi == $id){
                     $f=true;
@@ -270,7 +271,7 @@ var addClass = function(elem, className) {
 };
 
 function ordt(obj,e){ 
-  if(obj.className !=Ordered){
+  if(obj.className != "Ordered"){
     addClass(e.target, "Selected");
   }else{
     window.alert("That seat is already taken");
