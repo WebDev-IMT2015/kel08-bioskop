@@ -51,7 +51,7 @@
 </head>
 <body>
   
-<div class="container-fluid" id="printableArea">    
+{{-- <div class="container-fluid" id="printableArea">    
   <div class="row content">
     <div class="col-sm-6"> 
       <h1 class=tit>{{ $bio->nama }}</h1>
@@ -64,8 +64,23 @@
       <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
     </div>
   </div>
-</div>
+</div> --}}
 
+
+<div class="container-fluid" id="printableArea">    
+  <div class="row content">
+    <div class="col-sm-4"> 
+      <h1 class=tit>ASD</h1>
+      <hr>
+      <h1>ASD</h1>
+      <h3>Tanggal : OK</h3>
+      <h3>Jam : 1:00 AM</h3>
+      <br>
+      <p>{{ $bio->nama }} Cinema Surabaya</p>
+      <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
+    </div>
+  </div>
+</div>
 
 
 <script>
