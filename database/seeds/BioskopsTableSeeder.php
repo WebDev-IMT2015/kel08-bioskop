@@ -11,20 +11,20 @@ class BioskopsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('bioskop')->insert([
-            'name' => 'XXI PTC',
+        DB::table('bioskops')->insert([
+            'nama' => 'XXI PTC',
             'lokasi' => 'Surabaya',
             'status' => '1',
         ]);
 
-        DB::table('bioskop')->insert([
-            'name' => 'I-MAX PTC',
+        DB::table('bioskops')->insert([
+            'nama' => 'I-MAX PTC',
             'lokasi' => 'Surabaya',
             'status' => '1',
         ]);
 
-        DB::table('bioskop')->insert([
-            'name' => 'Mangga Dua',
+        DB::table('bioskops')->insert([
+            'nama' => 'Mangga Dua',
             'lokasi' => 'Jakarta',
             'status' => '1',
         ]);
