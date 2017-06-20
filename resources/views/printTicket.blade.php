@@ -99,20 +99,21 @@
       <tr>
        <th class="side">
          <h3>{{ $fil->judul }} - {{ $stu->jenis }}</h3>
-         <h3>Tanggal : {{ $psn->tlg_pesan }}</h3>
+         <h3>Tanggal : {{ $psn->tgl_pesan }}</h3>
        </th id="side">
        <th class="last">
          <h1>{{ $fil->judul }} - {{ $stu->jenis }}</h1>
-        <h3>Tanggal : {{ $psn->tlg_pesan }}</h3>
+        <h3>Tanggal : {{ $psn->tgl_pesan }}</h3>
         <h3>Jam : {{ $jm->jam }} AM</h3>
         <br>
         <p>{{ $bio->nama }} Cinema Surabaya</p>
        </th>
       </tr>
       </table>
+      <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
     </div>
   </div>
-  <button id="print" onclick="hide(); myFunction('printableArea')">Print ticket</button>
+  
 </div>
 
 

@@ -17,6 +17,8 @@ class OrderController extends Controller
     	$studio = Studio::all();
         $bioskop = Bioskop::all();
         $film = Film::all();
+                    
+
         return view('dataPenjualan')
         ->with('pesanan', $pesanan)
         ->with('jam', $jam)

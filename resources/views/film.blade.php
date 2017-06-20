@@ -108,7 +108,7 @@
                         <label for="durasi" class="col-md-4 control-label">Durasi</label>
 
                         <div class="col-md-6">
-                          <input id="durasi" type="number" name="durasi" required
+                          <input id="durasi" type="number" name="durasi" min="0" required
                           @if(isset($film_edit)) value="{{ $film_edit->durasi }}" @endif>
                         </div>
 

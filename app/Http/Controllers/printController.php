@@ -12,7 +12,7 @@ use App\Film;
 class printController extends Controller
 {
     public function index(){
-    	$pesanan = Pesanan::find(1);
+    	$pesanan = Pesanan::all() ->last();
     	$jam = Jam_Tayang_Film::find($pesanan->id_jtf);
     	$studio = Studio::find($jam->id_studio);
         $bioskop = Bioskop::find($studio->id_bioskop);
